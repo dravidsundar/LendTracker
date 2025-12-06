@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LendTracker - Dashboard</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      /* Reset & Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: #f8fafc;
+        color: #374151;
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      /* Layout */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 280px;
+        height: 100vh;
+        background: white;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transform: translateX(0);
+      }
+
+      .sidebar-header {
+        padding: 24px;
+        border-bottom: 1px solid #e5e7eb;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo-container i {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+      }
+
+      .logo-text {
+        font-size: 20px;
+        font-weight: 800;
+        color: #111827;
+      }
+
+      .sidebar-nav {
+        list-style: none;
+        padding: 16px;
+      }
+
+      .nav-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 16px;
+        color: #6b7280;
+        text-decoration: none;
+        border-radius: 10px;
+        transition: all 0.3s ease;
+        font-weight: 500;
+      }
+
+      .nav-link:hover,
+      .nav-item.active .nav-link {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+      }
+
+      .main-content {
+        margin-left: 280px;
+        transition: margin-left 0.3s ease;
+      }
+
+      .dashboard-header {
+        background: white;
+        padding: 24px;
+        border-bottom: 1px solid #e5e7eb;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .header-title h1 {
+        font-size: 28px;
+        font-weight: 800;
+        color: #111827;
+        margin-bottom: 4px;
+      }
+
+      .dashboard-content {
+        padding: 24px;
+      }
+
+      /* Table Card */
+      .table-card {
+        background: white;
+        border-radius: 16px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-bottom: 24px;
+      }
+
+      .table-header {
+        padding: 24px;
+        border-bottom: 1px solid #e5e7eb;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .table-header h3 {
+        font-size: 20px;
+        font-weight: 700;
+        color: #111827;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 10px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+      }
+      .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+      }
+
+      /* Sliding Add Client Form */
+      .add-client-form-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.3s ease;
+        background: #f9fafb;
+        padding: 0 24px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .add-client-form-container.show {
+        max-height: 700px;
+        padding: 24px;
+      }
+
+      .form-group {
+        margin-bottom: 16px;
+      }
+      .form-group label {
+        display: block;
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 6px;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 10px 14px;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 14px;
+      }
+      .form-actions {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 12px;
+      }
+
+      /* Table */
+      .table-content {
+        padding: 0 24px 24px;
+        overflow-x: auto;
+      }
+      .data-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .data-table th,
+      .data-table td {
+        padding: 12px;
+        border-bottom: 1px solid #f3f4f6;
+        text-align: left;
+        font-size: 14px;
+      }
+      .data-table th {
+        color: #6b7280;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <i class="fas fa-chart-line"></i>
+          <span class="logo-text">LendTracker</span>
+        </div>
+      </div>
+      <ul class="sidebar-nav">
+        <li class="nav-item active">
+          <a href="#" class="nav-link"><i class="fas fa-home"></i>Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link"><i class="fas fa-users"></i>Clients</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header class="dashboard-header">
+        <div class="header-title">
+          <h1>Dashboard</h1>
+          <p>Manage your loan portfolio</p>
+        </div>
+      </header>
+
+      <main class="dashboard-content">
+        <div class="table-card">
+          <div class="table-header">
+            <div class="table-title">
+              <h3>Client Management</h3>
+              <p>Track loan status and payments</p>
+            </div>
+            <button class="btn-primary" id="addClientBtn">
+              <i class="fas fa-plus"></i> Add Client
+            </button>
+          </div>
+
+          <!-- Sliding Add Client Form -->
+          <div class="add-client-form-container" id="addClientFormContainer">
+            <form id="addClientForm">
+              <div class="form-group">
+                <label for="clientName">Client Name</label>
+                <input type="text" id="clientName" name="clientName" required />
+              </div>
+              <div class="form-group">
+                <label for="clientEmail">Email</label>
+                <input
+                  type="email"
+                  id="clientEmail"
+                  name="clientEmail"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="clientInitials">Initials</label>
+                <input
+                  type="text"
+                  id="clientInitials"
+                  name="clientInitials"
+                  maxlength="3"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="weeklyAmount">Weekly Amount (₹)</label>
+                <input
+                  type="number"
+                  id="weeklyAmount"
+                  name="weeklyAmount"
+                  min="0"
+                  step="0.01"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="lendDate">Lend Date</label>
+                <input type="date" id="lendDate" name="lendDate" required />
+              </div>
+              <div class="form-group">
+                <label for="collectionDay">Collection Day</label>
+                <select id="collectionDay" name="collectionDay" required>
+                  <option value="">Select Day</option>
+                  <option value="monday">Monday</option>
+                  <option value="tuesday">Tuesday</option>
+                  <option value="wednesday">Wednesday</option>
+                  <option value="thursday">Thursday</option>
+                  <option value="friday">Friday</option>
+                  <option value="saturday">Saturday</option>
+                </select>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn-primary">Add Client</button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Clients Table -->
+          <div class="table-content">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Client</th>
+                  <th>Status</th>
+                  <th>Pay Day</th>
+                  <th>Paid</th>
+                  <th>Weeks Paid</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>John Doe</td>
+                  <td>Active</td>
+                  <td>Monday</td>
+                  <td>₹500</td>
+                  <td>3</td>
+                  <td><button class="btn-primary">Edit</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script>
+      const addClientBtn = document.getElementById("addClientBtn");
+      const addClientFormContainer = document.getElementById(
+        "addClientFormContainer"
+      );
+
+      addClientBtn.addEventListener("click", () => {
+        addClientFormContainer.classList.toggle("show");
+
+        // Toggle icon between + and ×
+        const icon = addClientBtn.querySelector("i");
+        if (addClientFormContainer.classList.contains("show")) {
+          icon.classList.remove("fa-plus");
+          icon.classList.add("fa-times");
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-plus");
+        }
+      });
+    </script>
+  </body>
+</html>

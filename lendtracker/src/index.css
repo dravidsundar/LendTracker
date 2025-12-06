@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Lock body scroll when sidebar is open */
+body.no-scroll {
+  overflow: hidden;
+  height: 100%;
+}

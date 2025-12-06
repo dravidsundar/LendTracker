@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LendTracker - Client Details</title>
+    <link rel="stylesheet" href="./detail.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="dashboard-page">
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <i class="fas fa-chart-line"></i>
+          <span class="logo-text">LendTracker</span>
+        </div>
+        <button class="sidebar-toggle mobile-only" id="sidebarToggle">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li class="nav-item">
+          <a href="dashboard.html" class="nav-link">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a href="#" class="nav-link">
+            <i class="fas fa-users"></i>
+            <span>Clients</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="fas fa-dollar-sign"></i>
+            <span>Loans</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="fas fa-chart-bar"></i>
+            <span>Reports</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="user-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="user-info">
+            <span class="user-name">John Admin</span>
+            <span class="user-role">Administrator</span>
+          </div>
+          <button class="logout-btn" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <button
+            class="sidebar-toggle desktop-hidden"
+            id="sidebarToggleMobile"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <button
+            class="back-btn"
+            onclick="window.location.href='dashboard.html'"
+          >
+            <i class="fas fa-arrow-left"></i>
+          </button>
+          <div class="header-title">
+            <h1>Client Details</h1>
+            <p id="clientName">Loading client information...</p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Client Detail Content -->
+      <main class="dashboard-content">
+        <!-- Client Info Card -->
+        <div class="client-info-card">
+          <div class="client-header">
+            <div class="client-avatar-section">
+              <div class="client-avatar" id="clientAvatar">P8</div>
+              <div class="client-basic-info">
+                <h2 id="clientFullName">P8 Client</h2>
+                <p id="clientEmail">p8client@example.com</p>
+              </div>
+            </div>
+            <div class="client-actions">
+              <div class="client-status">
+                <span class="status-badge active" id="clientStatus"
+                  >Active</span
+                >
+                <p class="lend-date">
+                  Lend Date: <span id="lendDate">30/04/25</span>
+                </p>
+              </div>
+              <div class="action-buttons">
+                <button class="btn-secondary" id="editClientBtn">
+                  <i class="fas fa-edit"></i>
+                  Edit Client
+                </button>
+                <button class="btn-danger" id="deleteClientBtn">
+                  <i class="fas fa-trash"></i>
+                  Delete
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Client Stats -->
+          <div class="client-stats">
+            <div class="stat-item">
+              <span class="stat-value" id="statWeeksPaid">7</span>
+              <span class="stat-label">Weeks Paid</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" id="statTotalPaid">₹4,200</span>
+              <span class="stat-label">Total Amount Paid</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" id="statCollectionDay">Tuesday</span>
+              <span class="stat-label">Collection Day</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-value" id="statWeeklyAmount">₹600</span>
+              <span class="stat-label">Weekly Amount</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="table-card">
+          <div class="table-header">
+            <h3>Quick Actions</h3>
+          </div>
+          <div class="quick-actions">
+            <button class="btn-primary" id="addEntryBtn">
+              <i class="fas fa-plus"></i>
+              Add Entry
+            </button>
+            <button class="btn-secondary" id="editEntryBtn">
+              <i class="fas fa-edit"></i>
+              Edit Entry
+            </button>
+            <button class="btn-danger" id="deleteEntryBtn">
+              <i class="fas fa-trash"></i>
+              Delete Entry
+            </button>
+            <button class="btn-secondary" id="exportDataBtn">
+              <i class="fas fa-download"></i>
+              Export Data
+            </button>
+          </div>
+        </div>
+
+        <!-- Payment History -->
+        <div class="table-card">
+          <div class="table-header">
+            <h3>Payment History</h3>
+            <p>Detailed payment records for this client</p>
+          </div>
+          <div class="table-content">
+            <table class="data-table" id="paymentHistoryTable">
+              <thead>
+                <tr>
+                  <th>Week</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Payment Status</th>
+                </tr>
+              </thead>
+              <tbody id="paymentHistoryBody">
+                <tr>
+                  <td>1</td>
+                  <td>07/05/2025</td>
+                  <td>₹600</td>
+                  <td><span class="status-badge paid">Paid</span></td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>14/05/2025</td>
+                  <td>₹600</td>
+                  <td><span class="status-badge paid">Paid</span></td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>21/05/2025</td>
+                  <td>₹600</td>
+                  <td><span class="status-badge paid">Paid</span></td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>28/05/2025</td>
+                  <td>₹600</td>
+                  <td><span class="status-badge paid">Paid</span></td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>04/06/2025</td>
+                  <td>₹600</td>
+                  <td><span class="status-badge paid">Paid</span></td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>11/06/2025</td>
+                  <td>₹600</td>
+                  <td><span class="status-badge paid">Paid</span></td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>18/06/2025</td>
+                  <td>₹600</td>
+                  <td><span class="status-badge paid">Paid</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Overlay for mobile sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Edit Client Modal -->
+    <div class="modal-overlay" id="editClientModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Edit Client</h3>
+          <button class="modal-close" id="closeEditClientModal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <form class="modal-form" id="editClientForm">
+          <input type="hidden" id="editClientId" name="editClientId" />
+          <div class="form-group">
+            <label for="editClientName">Client Name</label>
+            <input
+              type="text"
+              id="editClientName"
+              name="editClientName"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="editClientEmail">Email</label>
+            <input
+              type="email"
+              id="editClientEmail"
+              name="editClientEmail"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="editClientInitials">Initials</label>
+            <input
+              type="text"
+              id="editClientInitials"
+              name="editClientInitials"
+              maxlength="3"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="editWeeklyAmount">Weekly Amount (₹)</label>
+            <input
+              type="number"
+              id="editWeeklyAmount"
+              name="editWeeklyAmount"
+              min="0"
+              step="0.01"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="editLendDate">Lend Date</label>
+            <input type="date" id="editLendDate" name="editLendDate" required />
+          </div>
+          <div class="form-group">
+            <label for="editCollectionDay">Collection Day</label>
+            <select id="editCollectionDay" name="editCollectionDay" required>
+              <option value="">Select Day</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editStatus">Status</label>
+            <select id="editStatus" name="editStatus" required>
+              <option value="">Select Status</option>
+              <option value="active">Active</option>
+              <option value="pending">Pending</option>
+              <option value="closed">Closed</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" id="cancelEditClient">
+              Cancel
+            </button>
+            <button type="submit" class="btn-primary">Update Client</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Add Entry Modal -->
+    <div class="modal-overlay" id="addEntryModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Add Payment Entry</h3>
+          <button class="modal-close" id="closeAddEntryModal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <form class="modal-form" id="addEntryForm">
+          <div class="form-group">
+            <label for="entryAmount">Payment Amount (₹)</label>
+            <input
+              type="number"
+              id="entryAmount"
+              name="entryAmount"
+              min="0"
+              step="0.01"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="entryDate">Payment Date</label>
+            <input type="date" id="entryDate" name="entryDate" required />
+          </div>
+          <div class="form-group">
+            <label for="entryStatus">Payment Status</label>
+            <select id="entryStatus" name="entryStatus" required>
+              <option value="">Select Status</option>
+              <option value="paid">Paid</option>
+              <option value="pending">Pending</option>
+              <option value="overdue">Overdue</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" id="cancelAddEntry">
+              Cancel
+            </button>
+            <button type="submit" class="btn-primary">Add Entry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Edit Entry Modal -->
+    <div class="modal-overlay" id="editEntryModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Edit Payment Entry</h3>
+          <button class="modal-close" id="closeEditEntryModal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <form class="modal-form" id="editEntryForm">
+          <div class="form-group">
+            <label for="selectWeekToEdit">Select Week to Edit</label>
+            <select id="selectWeekToEdit" name="selectWeekToEdit" required>
+              <option value="">Choose a week</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editEntryAmount">Payment Amount (₹)</label>
+            <input
+              type="number"
+              id="editEntryAmount"
+              name="editEntryAmount"
+              min="0"
+              step="0.01"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="editEntryDate">Payment Date</label>
+            <input
+              type="date"
+              id="editEntryDate"
+              name="editEntryDate"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="editEntryStatus">Payment Status</label>
+            <select id="editEntryStatus" name="editEntryStatus" required>
+              <option value="">Select Status</option>
+              <option value="paid">Paid</option>
+              <option value="pending">Pending</option>
+              <option value="overdue">Overdue</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" id="cancelEditEntry">
+              Cancel
+            </button>
+            <button type="submit" class="btn-primary">Update Entry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Delete Entry Modal -->
+    <div class="modal-overlay" id="deleteEntryModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Delete Payment Entry</h3>
+          <button class="modal-close" id="closeDeleteEntryModal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <form class="modal-form" id="deleteEntryForm">
+          <div class="form-group">
+            <label for="selectWeekToDelete">Select Week to Delete</label>
+            <select id="selectWeekToDelete" name="selectWeekToDelete" required>
+              <option value="">Choose a week</option>
+            </select>
+          </div>
+          <div class="delete-warning">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>
+              This action cannot be undone. The payment entry will be
+              permanently deleted.
+            </p>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" id="cancelDeleteEntry">
+              Cancel
+            </button>
+            <button type="submit" class="btn-danger">Delete Entry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

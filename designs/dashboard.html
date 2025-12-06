@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LendTracker - Dashboard</title>
+    <link rel="stylesheet" href="./db.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="dashboard-page">
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <i class="fas fa-chart-line"></i>
+          <span class="logo-text">LendTracker</span>
+        </div>
+        <button class="sidebar-toggle mobile-only" id="sidebarToggle">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <ul class="sidebar-nav">
+        <li class="nav-item active">
+          <a href="dashboard.html" class="nav-link">
+            <i class="fas fa-home"></i>
+            <span>Dashboard</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="./detail.html" class="nav-link">
+            <i class="fas fa-users"></i>
+            <span>Clients</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="fas fa-dollar-sign"></i>
+            <span>Loans</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="fas fa-chart-bar"></i>
+            <span>Reports</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <div class="user-avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="user-info">
+            <span class="user-name">John Admin</span>
+            <span class="user-role">Administrator</span>
+          </div>
+          <button class="logout-btn" id="logoutBtn">
+            <i class="fas fa-sign-out-alt"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header -->
+      <header class="dashboard-header">
+        <div class="header-left">
+          <button
+            class="sidebar-toggle desktop-hidden"
+            id="sidebarToggleMobile"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="header-title">
+            <h1>Dashboard</h1>
+            <p>Manage your loan portfolio</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button class="action-btn">
+            <i class="fas fa-bell"></i>
+          </button>
+          <button class="action-btn">
+            <i class="fas fa-cog"></i>
+          </button>
+        </div>
+      </header>
+
+      <!-- Dashboard Content -->
+      <main class="dashboard-content">
+        <!-- Metrics Cards -->
+        <div class="metrics-grid">
+          <div class="metric-card total-loans">
+            <div class="metric-info">
+              <h3>Total Loans</h3>
+              <span class="metric-value" id="totalLoans">4</span>
+            </div>
+            <div class="metric-icon">
+              <i class="fas fa-coins"></i>
+            </div>
+          </div>
+
+          <div class="metric-card active-loans">
+            <div class="metric-info">
+              <h3>Active Loans</h3>
+              <span class="metric-value" id="activeLoans">2</span>
+            </div>
+            <div class="metric-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+          </div>
+
+          <div class="metric-card closed-loans">
+            <div class="metric-info">
+              <h3>Closed Loans</h3>
+              <span class="metric-value" id="closedLoans">1</span>
+            </div>
+            <div class="metric-icon">
+              <i class="fas fa-check-circle"></i>
+            </div>
+          </div>
+
+          <div class="metric-card weekly-payment">
+            <div class="metric-info">
+              <h3>Weekly Payment</h3>
+              <span class="metric-value" id="weeklyPayment">₹1,350</span>
+            </div>
+            <div class="metric-icon">
+              <i class="fas fa-calendar-week"></i>
+            </div>
+          </div>
+
+          <div class="metric-card upcoming-collection">
+            <div class="metric-info">
+              <h3>Upcoming Collection</h3>
+              <span class="metric-value" id="upcomingCollection">₹1,350</span>
+            </div>
+            <div class="metric-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Daily Collections - Horizontal -->
+        <div class="daily-collections-horizontal">
+          <h3>Daily Collections - Weekly Payment Schedule</h3>
+          <div class="daily-collections-grid" id="dailyCollectionsGrid">
+            <!-- Data will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Client Management -->
+        <div class="table-card client-management-section">
+          <div class="table-header">
+            <div class="table-title">
+              <h3>Client Management</h3>
+              <p>Track loan status and payments</p>
+            </div>
+            <button class="btn-primary" id="addClientBtn">
+              <i class="fas fa-plus"></i>
+              Add Client
+            </button>
+          </div>
+
+          <!-- Filters -->
+          <div class="table-filters">
+            <select id="statusFilter" class="filter-select">
+              <option value="all">All Status</option>
+              <option value="active">Active</option>
+              <option value="pending">Pending</option>
+              <option value="closed">Closed</option>
+            </select>
+            <select id="dayFilter" class="filter-select">
+              <option value="all">All Days</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
+              <option value="sunday">Sunday</option>
+            </select>
+          </div>
+
+          <div class="table-content">
+            <table class="data-table" id="clientsTable">
+              <thead>
+                <tr>
+                  <th>Client</th>
+                  <th>Status</th>
+                  <th>Pay Day</th>
+                  <th>Paid</th>
+                  <th>Weeks Paid</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="clientsTableBody">
+                <!-- Data will be populated by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Overlay for mobile sidebar -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Add Client Modal -->
+    <div class="modal-overlay" id="addClientModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Add New Client</h3>
+          <button class="modal-close" id="closeAddClientModal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <form class="modal-form" id="addClientForm">
+          <div class="form-group">
+            <label for="clientName">Client Name</label>
+            <input type="text" id="clientName" name="clientName" required />
+          </div>
+          <div class="form-group">
+            <label for="clientEmail">Email</label>
+            <input type="email" id="clientEmail" name="clientEmail" required />
+          </div>
+          <div class="form-group">
+            <label for="clientInitials">Initials</label>
+            <input
+              type="text"
+              id="clientInitials"
+              name="clientInitials"
+              maxlength="3"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="weeklyAmount">Weekly Amount (₹)</label>
+            <input
+              type="number"
+              id="weeklyAmount"
+              name="weeklyAmount"
+              min="0"
+              step="0.01"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="lendDate">Lend Date</label>
+            <input type="date" id="lendDate" name="lendDate" required />
+          </div>
+          <div class="form-group">
+            <label for="collectionDay">Collection Day</label>
+            <select id="collectionDay" name="collectionDay" required>
+              <option value="">Select Day</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" id="cancelAddClient">
+              Cancel
+            </button>
+            <button type="submit" class="btn-primary">Add Client</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Edit Client Modal -->
+    <div class="modal-overlay" id="editClientModal">
+      <div class="modal-container">
+        <div class="modal-header">
+          <h3>Edit Client</h3>
+          <button class="modal-close" id="closeEditClientModal">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <form class="modal-form" id="editClientForm">
+          <input type="hidden" id="editClientId" name="editClientId" />
+          <div class="form-group">
+            <label for="editClientName">Client Name</label>
+            <input
+              type="text"
+              id="editClientName"
+              name="editClientName"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="editClientEmail">Email</label>
+            <input
+              type="email"
+              id="editClientEmail"
+              name="editClientEmail"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="editClientInitials">Initials</label>
+            <input
+              type="text"
+              id="editClientInitials"
+              name="editClientInitials"
+              maxlength="3"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="editWeeklyAmount">Weekly Amount (₹)</label>
+            <input
+              type="number"
+              id="editWeeklyAmount"
+              name="editWeeklyAmount"
+              min="0"
+              step="0.01"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="editLendDate">Lend Date</label>
+            <input type="date" id="editLendDate" name="editLendDate" required />
+          </div>
+          <div class="form-group">
+            <label for="editCollectionDay">Collection Day</label>
+            <select id="editCollectionDay" name="editCollectionDay" required>
+              <option value="">Select Day</option>
+              <option value="monday">Monday</option>
+              <option value="tuesday">Tuesday</option>
+              <option value="wednesday">Wednesday</option>
+              <option value="thursday">Thursday</option>
+              <option value="friday">Friday</option>
+              <option value="saturday">Saturday</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="editStatus">Status</label>
+            <select id="editStatus" name="editStatus" required>
+              <option value="">Select Status</option>
+              <option value="active">Active</option>
+              <option value="pending">Pending</option>
+              <option value="closed">Closed</option>
+            </select>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" id="cancelEditClient">
+              Cancel
+            </button>
+            <button type="submit" class="btn-primary">Update Client</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,4382 @@
+{
+  "AM25": {
+    "AllStats": {
+      "ActiveLoans": 0,
+      "ClosedLoans": 6,
+      "CurrentBalance": 28900,
+      "TotalLoans": 6,
+      "UpcomingCollection": 2400,
+      "WeeklyPayment": 3600
+    },
+    "ClientData": {
+      "P1": {
+        "P1Stat": {
+          "ClientName": "P1",
+          "CollectionDay": "WED",
+          "LendDate": "(14/11/24)",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "20/11/24"
+          },
+          "week10": {
+            "Amount": "600",
+            "date": "22/01/25"
+          },
+          "week11": {
+            "Amount": "600",
+            "date": "29/01/25"
+          },
+          "week12": {
+            "Amount": "600",
+            "date": "05/02/25"
+          },
+          "week13": {
+            "Amount": "600",
+            "date": "12/02/25"
+          },
+          "week14": {
+            "Amount": "600",
+            "date": "19/02/25"
+          },
+          "week15": {
+            "Amount": "600",
+            "date": "26/02/25"
+          },
+          "week16": {
+            "Amount": "600",
+            "date": "05/03/25"
+          },
+          "week17": {
+            "Amount": "600",
+            "date": "12/03/25"
+          },
+          "week18": {
+            "Amount": "600",
+            "date": "19/03/25"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "26/03/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "27/11/24"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "02/04/2025"
+          },
+          "week3": {
+            "Amount": "600",
+            "date": "04/12/24"
+          },
+          "week4": {
+            "Amount": "600",
+            "date": "11/12/24"
+          },
+          "week5": {
+            "Amount": "600",
+            "date": "18/12/24"
+          },
+          "week6": {
+            "Amount": "600",
+            "date": "25/12/24"
+          },
+          "week7": {
+            "Amount": "600",
+            "date": "01/01/25"
+          },
+          "week8": {
+            "Amount": "600",
+            "date": "08/01/25"
+          },
+          "week9": {
+            "Amount": "600",
+            "date": "15/01/25"
+          }
+        }
+      },
+      "P2": {
+        "P2Stat": {
+          "ClientName": "P2",
+          "CollectionDay": "THURS",
+          "LendDate": " (15/11/24) ",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "21/11/24"
+          },
+          "week10": {
+            "Amount": "600",
+            "date": "23/01/25"
+          },
+          "week11": {
+            "Amount": "600",
+            "date": "30/01/25"
+          },
+          "week12": {
+            "Amount": "600",
+            "date": "06/02/25"
+          },
+          "week13": {
+            "Amount": "600",
+            "date": "13/02/25"
+          },
+          "week14": {
+            "Amount": "600",
+            "date": "20/02/25"
+          },
+          "week15": {
+            "Amount": "600",
+            "date": "27/02/25"
+          },
+          "week16": {
+            "Amount": "600",
+            "date": "06/03/25"
+          },
+          "week17": {
+            "Amount": "600",
+            "date": "13/03/25"
+          },
+          "week18": {
+            "Amount": "600",
+            "date": "20/03/25"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "27/03/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "28/11/24"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "03/04/2025"
+          },
+          "week3": {
+            "Amount": "600",
+            "date": "05/12/24"
+          },
+          "week4": {
+            "Amount": "600",
+            "date": "12/12/24"
+          },
+          "week5": {
+            "Amount": "600",
+            "date": "19/12/24"
+          },
+          "week6": {
+            "Amount": "600",
+            "date": "26/12/24"
+          },
+          "week7": {
+            "Amount": "600",
+            "date": "02/01/25"
+          },
+          "week8": {
+            "Amount": "600",
+            "date": "09/01/25"
+          },
+          "week9": {
+            "Amount": "600",
+            "date": "16/01/25"
+          }
+        }
+      },
+      "P3": {
+        "P3Stat": {
+          "ClientName": "P3",
+          "CollectionDay": "FRI",
+          "LendDate": " (11/01/25)",
+          "Status": "Closed",
+          "TotalAmountPaid": 12600,
+          "WeeksPaid": 21
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "17/01/25"
+          },
+          "week10": {
+            "Amount": "600",
+            "date": "21/03/25"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "28/03/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "04/04/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "11/04/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "18/04/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "25/04/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "02/05/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "09/05/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "16/05/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "23/05/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "24/01/25"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "30/05/2025"
+          },
+          "week21": {
+            "Amount": 600,
+            "date": "06/06/2025"
+          },
+          "week3": {
+            "Amount": "600",
+            "date": "31/01/25"
+          },
+          "week4": {
+            "Amount": "600",
+            "date": "07/02/25"
+          },
+          "week5": {
+            "Amount": "600",
+            "date": "14/02/25"
+          },
+          "week6": {
+            "Amount": "600",
+            "date": "21/02/25"
+          },
+          "week7": {
+            "Amount": "600",
+            "date": "28/02/25"
+          },
+          "week8": {
+            "Amount": "600",
+            "date": "07/03/25"
+          },
+          "week9": {
+            "Amount": "600",
+            "date": "14/03/25"
+          }
+        }
+      },
+      "P4": {
+        "P4Stat": {
+          "ClientName": "P4",
+          "CollectionDay": "FRI",
+          "LendDate": " (14/02/25) ",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "22/02/25"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "02/05/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "09/05/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "16/05/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "23/05/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "30/05/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "06/06/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "13/06/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "20/06/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "27/06/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "04/07/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "07/03/25"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "11/07/2025"
+          },
+          "week3": {
+            "Amount": "600",
+            "date": "14/03/25"
+          },
+          "week4": {
+            "Amount": "600",
+            "date": "21/03/25"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "28/03/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "04/04/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "11/04/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "18/04/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "25/04/2025"
+          }
+        }
+      },
+      "P5": {
+        "P5Stat": {
+          "ClientName": "P5",
+          "CollectionDay": "SUN",
+          "LendDate": " (16/03/25) ",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "16/03/25"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "18/05/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "25/05/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "01/06/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "08/06/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "15/06/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "22/06/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "01/07/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "08/07/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "15/07/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "22/07/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "23/03/25"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "29/07/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "30/03/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "06/04/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "14/04/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "20/04/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "27/04/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "06/05/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "11/05/2025"
+          }
+        }
+      },
+      "P6": {
+        "P6Stat": {
+          "ClientName": "P6",
+          "CollectionDay": "MON",
+          "LendDate": "6/5/25",
+          "Status": "Active",
+          "TotalAmountPaid": 9000,
+          "WeeksPaid": 15
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "12/05/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "14/07/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "21/07/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "28/07/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "04/08/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "11/08/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "18/08/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "19/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "26/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "02/06/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "09/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "16/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "23/06/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "30/06/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "07/07/2025"
+          }
+        }
+      }
+    }
+  },
+  "Akash": {
+    "AllStats": {
+      "ActiveLoans": 4,
+      "ClosedLoans": 3,
+      "CurrentBalance": 28000,
+      "TotalLoans": 7,
+      "UpcomingCollection": 25200,
+      "WeeklyPayment": 4200
+    },
+    "ClientData": {
+      "P1": {
+        "P1Stat": {
+          "ClientName": "P1",
+          "CollectionDay": "SAT",
+          "LendDate": " (14/02/25) ",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "30/04/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "26/04/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "03/05/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "10/05/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "17/05/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "24/05/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "31/05/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "07/06/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "14/06/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "21/06/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "28/06/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "01/03/25"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "05/07/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "08/03/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "15/02/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "22/03/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "29/03/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "05/04/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "12/04/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          }
+        }
+      },
+      "P2": {
+        "P2Stat": {
+          "ClientName": "P2",
+          "CollectionDay": "SAT",
+          "LendDate": " (14/02/25) ",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "22/02/25"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "26/04/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "03/05/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "10/05/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "17/05/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "24/05/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "31/05/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "07/06/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "14/06/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "21/06/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "28/06/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "01/03/25"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "05/07/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "08/03/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "15/03/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "22/03/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "29/03/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "05/04/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "12/04/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          }
+        }
+      },
+      "P3": {
+        "P3Stat": {
+          "ClientName": "P3",
+          "CollectionDay": "THU",
+          "LendDate": "27/03/25",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "27/03/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "29/05/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "05/06/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "12/06/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "19/06/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "26/06/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "03/07/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "10/07/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "17/07/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "24/07/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "31/07/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "03/04/2025"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "07/08/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "10/04/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "17/04/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "01/05/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "08/05/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "15/05/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "22/05/2025"
+          }
+        }
+      },
+      "P4": {
+        "P4Stat": {
+          "ClientName": "P4",
+          "CollectionDay": "TUE",
+          "LendDate": "6/5/25",
+          "Status": "Active",
+          "TotalAmountPaid": 9600,
+          "WeeksPaid": 16
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "06/05/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "08/07/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "15/07/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "22/07/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "29/07/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "05/08/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "12/08/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "19/08/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "13/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "20/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "27/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "03/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "10/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "17/06/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "24/06/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "01/07/2025"
+          }
+        }
+      },
+      "P5": {
+        "P5Stat": {
+          "ClientName": "P5",
+          "CollectionDay": "MON",
+          "LendDate": "9/6/25",
+          "Status": "Active",
+          "TotalAmountPaid": 6600,
+          "WeeksPaid": 11
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "9/06/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "11/08/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "18/08/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "16/06/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "23/06/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "30/06/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "07/07/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "14/07/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "21/07/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "28/07/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "04/08/2025"
+          }
+        }
+      },
+      "P6": {
+        "P6Stat": {
+          "ClientName": "P6",
+          "CollectionDay": "WED",
+          "LendDate": "2/7/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "02/07/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "09/07/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "16/07/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "23/07/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "30/07/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "06/08/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "13/08/2025"
+          }
+        }
+      },
+      "P7": {
+        "P7Stat": {
+          "ClientName": "P7",
+          "CollectionDay": "SAT",
+          "LendDate": "26/7/25",
+          "Status": "Active",
+          "TotalAmountPaid": 2400,
+          "WeeksPaid": 4
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "26/07/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "02/08/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "09/08/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "16/08/2025"
+          }
+        }
+      }
+    }
+  },
+  "Dravid": {
+    "AllStats": {
+      "ActiveLoans": 12,
+      "ClosedLoans": 15,
+      "CurrentBalance": 53700,
+      "TotalLoans": 27,
+      "UpcomingCollection": 81000,
+      "WeeklyPayment": 16200
+    },
+    "ClientData": {
+      "P1": {
+        "P1Stat": {
+          "ClientName": "P1",
+          "CollectionDay": "MON",
+          "LendDate": "(26/11/24)",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "02/12/24"
+          },
+          "week10": {
+            "Amount": "600",
+            "date": "03/02/25"
+          },
+          "week11": {
+            "Amount": "600",
+            "date": "10/02/25"
+          },
+          "week12": {
+            "Amount": "600",
+            "date": "17/02/25"
+          },
+          "week13": {
+            "Amount": "600",
+            "date": "24/02/25"
+          },
+          "week14": {
+            "Amount": "600",
+            "date": "03/02/25"
+          },
+          "week15": {
+            "Amount": "600",
+            "date": "10/03/25"
+          },
+          "week16": {
+            "Amount": "600",
+            "date": "17/03/25"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "24/03/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "31/03/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "07/04/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "09/12/24"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "14/04/2025"
+          },
+          "week3": {
+            "Amount": "600",
+            "date": "16/12/24"
+          },
+          "week4": {
+            "Amount": "600",
+            "date": "23/12/24"
+          },
+          "week5": {
+            "Amount": "600",
+            "date": "30/12/24"
+          },
+          "week6": {
+            "Amount": "600",
+            "date": "06/01/25"
+          },
+          "week7": {
+            "Amount": "600",
+            "date": "13/01/25"
+          },
+          "week8": {
+            "Amount": "600",
+            "date": "20/01/25"
+          },
+          "week9": {
+            "Amount": "600",
+            "date": "27/01/25"
+          }
+        }
+      },
+      "P10": {
+        "P10Stat": {
+          "ClientName": "P10",
+          "CollectionDay": "WED",
+          "LendDate": " (12/03/25) ",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "19/03/25"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "25/06/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "02/07/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "09/07/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "16/07/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "23/07/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "26/03/2025"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "30/07/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "02/04/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "09/04/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "16/04/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "23/04/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "30/04/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          }
+        }
+      },
+      "P11": {
+        "P11Stat": {
+          "ClientName": "P11",
+          "CollectionDay": "WED",
+          "LendDate": " (12/03/25) ",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "19/03/25"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "25/06/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "02/07/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "09/07/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "16/07/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "23/07/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "26/03/2025"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "30/07/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "02/04/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "09/04/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "16/04/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "23/04/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "30/04/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          }
+        }
+      },
+      "P12": {
+        "P12Stat": {
+          "ClientName": "P12",
+          "CollectionDay": "TUE",
+          "LendDate": "08/04/25",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "25/03/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "27/05/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "03/06/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "10/06/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "17/06/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "24/06/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "01/07/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "08/07/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "15/07/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "22/07/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "29/07/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "01/04/2025"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "05/08/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "08/04/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "15/04/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "22/04/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "29/04/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "06/05/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "13/05/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "20/05/2025"
+          }
+        }
+      },
+      "P13": {
+        "P13Stat": {
+          "ClientName": "P13",
+          "CollectionDay": "THU",
+          "LendDate": "10/04/25",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "17/04/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "19/06/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "26/06/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "03/07/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "10/07/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "17/07/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "24/07/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "31/07/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "07/08/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "14/08/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "21/08/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "28/08/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "01/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "08/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "15/05/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "22/05/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "29/05/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "05/06/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "12/06/2025"
+          }
+        }
+      },
+      "P14": {
+        "P14Stat": {
+          "ClientName": "P14",
+          "CollectionDay": "MON",
+          "LendDate": "6/5/25",
+          "Status": "Active",
+          "TotalAmountPaid": 10800,
+          "WeeksPaid": 18
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "12/05/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "14/07/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "21/07/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "28/07/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "04/08/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "11/08/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "18/08/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "25/08/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "01/09/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "08/09/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "19/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "26/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "02/06/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "09/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "16/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "23/06/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "30/06/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "07/07/2025"
+          }
+        }
+      },
+      "P15": {
+        "P15Stat": {
+          "ClientName": "P15",
+          "CollectionDay": "MON",
+          "LendDate": "6/5/25",
+          "Status": "Active",
+          "TotalAmountPaid": 10800,
+          "WeeksPaid": 18
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "12/05/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "14/07/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "21/07/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "28/07/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "04/08/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "11/08/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "18/08/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "25/08/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "01/09/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "08/09/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "19/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "26/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "02/06/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "09/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "16/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "23/06/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "30/06/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "07/07/2025"
+          }
+        }
+      },
+      "P16": {
+        "P16Stat": {
+          "ClientName": "P16",
+          "CollectionDay": "MON",
+          "LendDate": "12/5/25",
+          "Status": "Active",
+          "TotalAmountPaid": 10200,
+          "WeeksPaid": 17
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "19/05/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "21/07/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "28/07/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "04/08/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "11/08/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "18/08/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "25/08/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "01/09/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "08/09/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "26/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "02/06/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "09/06/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "16/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "23/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "30/06/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "07/07/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "14/07/2025"
+          }
+        }
+      },
+      "P17": {
+        "P17Stat": {
+          "ClientName": "P17",
+          "CollectionDay": "MON",
+          "LendDate": "17/4/25",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "21/04/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "23/06/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "30/06/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "07/07/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "14/07/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "21/07/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "28/07/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "04/08/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "11/08/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "18/08/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "25/08/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "01/09/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "05/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "12/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "19/05/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "26/05/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "02/06/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "09/06/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "16/06/2025"
+          }
+        }
+      },
+      "P18": {
+        "P18Stat": {
+          "ClientName": "P18",
+          "CollectionDay": "THU",
+          "LendDate": "24/5/25",
+          "Status": "Active",
+          "TotalAmountPaid": 9000,
+          "WeeksPaid": 15
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "31/05/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "02/08/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "09/08/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "16/08/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "23/08/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "30/08/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "06/09/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "07/06/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "14/06/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "21/06/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "28/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "05/07/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "12/07/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "19/07/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "26/07/2025"
+          }
+        }
+      },
+      "P19": {
+        "P19Stat": {
+          "ClientName": "P19",
+          "CollectionDay": "THU",
+          "LendDate": "14/6/25",
+          "Status": "Active",
+          "TotalAmountPaid": 7800,
+          "WeeksPaid": 13
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "19/06/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "21/08/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "28/08/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "04/09/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "11/09/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "26/06/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "03/07/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "10/07/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "17/07/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "24/07/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "31/07/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "07/08/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "14/08/2025"
+          }
+        }
+      },
+      "P2": {
+        "P2Stat": {
+          "ClientName": "P2",
+          "CollectionDay": "THU",
+          "LendDate": "(12/12/24)",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "12/12/24"
+          },
+          "week10": {
+            "Amount": "600",
+            "date": "13/02/25"
+          },
+          "week11": {
+            "Amount": "600",
+            "date": "20/02/25"
+          },
+          "week12": {
+            "Amount": "600",
+            "date": "27/02/25"
+          },
+          "week13": {
+            "Amount": "600",
+            "date": "06/03/25"
+          },
+          "week14": {
+            "Amount": "600",
+            "date": "13/03/25"
+          },
+          "week15": {
+            "Amount": "600",
+            "date": "20/03/25"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "27/03/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "03/04/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "10/04/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "17/04/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "19/12/24"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week3": {
+            "Amount": "600",
+            "date": "26/12/24"
+          },
+          "week4": {
+            "Amount": "600",
+            "date": "02/01/25"
+          },
+          "week5": {
+            "Amount": "600",
+            "date": "09/01/25"
+          },
+          "week6": {
+            "Amount": "600",
+            "date": "16/01/25"
+          },
+          "week7": {
+            "Amount": "600",
+            "date": "23/01/25"
+          },
+          "week8": {
+            "Amount": "600",
+            "date": "30/01/25"
+          },
+          "week9": {
+            "Amount": "600",
+            "date": "06/02/25"
+          }
+        }
+      },
+      "P20": {
+        "P20Stat": {
+          "ClientName": "P20",
+          "CollectionDay": "FRI",
+          "LendDate": "27/6/25",
+          "Status": "Active",
+          "TotalAmountPaid": 6600,
+          "WeeksPaid": 11
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "04/07/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "05/09/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "12/09/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "11/07/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "18/07/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "25/07/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "01/08/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "08/08/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "15/08/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "22/08/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "29/08/2025"
+          }
+        }
+      },
+      "P21": {
+        "P21Stat": {
+          "ClientName": "P21",
+          "CollectionDay": "SAT",
+          "LendDate": "14/7/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4800,
+          "WeeksPaid": 8
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "21/07/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "28/07/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "04/08/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "11/08/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "18/08/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "25/08/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "01/09/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "08/09/2025"
+          }
+        }
+      },
+      "P22": {
+        "P22Stat": {
+          "ClientName": "P22",
+          "CollectionDay": "SAT",
+          "LendDate": "24/7/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "31/07/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "07/08/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "14/08/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "21/08/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "28/08/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "04/09/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "11/09/2025"
+          }
+        }
+      },
+      "P23": {
+        "P23Stat": {
+          "ClientName": "P23",
+          "CollectionDay": "TUE",
+          "LendDate": "5/8/25",
+          "Status": "Active",
+          "TotalAmountPaid": 3000,
+          "WeeksPaid": 5
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "12/08/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "19/08/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "26/08/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "02/09/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "09/09/2025"
+          }
+        }
+      },
+      "P24": {
+        "P24Stat": {
+          "ClientName": "P24",
+          "CollectionDay": "WED",
+          "LendDate": "6/8/25",
+          "Status": "Active",
+          "TotalAmountPaid": 3000,
+          "WeeksPaid": 5
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "13/08/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "20/08/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "27/08/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "03/09/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "10/09/2025"
+          }
+        }
+      },
+      "P25": {
+        "P25Stat": {
+          "ClientName": "P25",
+          "CollectionDay": "WED",
+          "LendDate": "6/8/25",
+          "Status": "Active",
+          "TotalAmountPaid": 3000,
+          "WeeksPaid": 5
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "13/08/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "20/08/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "27/08/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "03/09/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "10/09/2025"
+          }
+        }
+      },
+      "P26": {
+        "P26Stat": {
+          "ClientName": "P26",
+          "CollectionDay": "TUE",
+          "LendDate": "26/8/25",
+          "Status": "Active",
+          "TotalAmountPaid": 1200,
+          "WeeksPaid": 2
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "02/09/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "09/09/2025"
+          }
+        }
+      },
+      "P27": {
+        "P27Stat": {
+          "ClientName": "P27",
+          "CollectionDay": "MON",
+          "LendDate": "10/9/25",
+          "Status": "Active",
+          "TotalAmountPaid": 0,
+          "WeeksPaid": 0
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 0,
+            "date": "need to be added"
+          }
+        }
+      },
+      "P3": {
+        "P3Stat": {
+          "ClientName": "P3",
+          "CollectionDay": "MON",
+          "LendDate": "(30/12/24)",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "06/01/25"
+          },
+          "week10": {
+            "Amount": "600",
+            "date": "10/03/25"
+          },
+          "week11": {
+            "Amount": "600",
+            "date": "17/03/25"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "01/04/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "07/04/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "14/04/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "21/04/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "28/04/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "05/05/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "12/05/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "13/01/25"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "12/05/2025"
+          },
+          "week3": {
+            "Amount": "600",
+            "date": "20/01/25"
+          },
+          "week4": {
+            "Amount": "600",
+            "date": "27/01/25"
+          },
+          "week5": {
+            "Amount": "600",
+            "date": "03/02/25"
+          },
+          "week6": {
+            "Amount": "600",
+            "date": "10/02/25"
+          },
+          "week7": {
+            "Amount": "600",
+            "date": "17/02/25"
+          },
+          "week8": {
+            "Amount": "600",
+            "date": "24/02/25"
+          },
+          "week9": {
+            "Amount": "600",
+            "date": "03/02/25"
+          }
+        }
+      },
+      "P4": {
+        "P4Stat": {
+          "ClientName": "P4",
+          "CollectionDay": "TUE",
+          "LendDate": "(21/01/25)",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "28/01/25"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "04/03/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "08/04/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "15/04/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "22/04/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "29/04/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "06/05/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "13/05/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "20/05/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "27/05/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "03/06/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "04/02/25"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "10/06/2025"
+          },
+          "week3": {
+            "Amount": "600",
+            "date": "11/02/25"
+          },
+          "week4": {
+            "Amount": "600",
+            "date": "18/02/25"
+          },
+          "week5": {
+            "Amount": "600",
+            "date": "25/02/25"
+          },
+          "week6": {
+            "Amount": "600",
+            "date": "04/03/25"
+          },
+          "week7": {
+            "Amount": "600",
+            "date": "15/02/25"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "18/03/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "25/03/2025"
+          }
+        }
+      },
+      "P5": {
+        "P5Stat": {
+          "ClientName": "P5",
+          "CollectionDay": "SAT",
+          "LendDate": "(31/01/25)",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "07/02/25"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "05/04/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "12/04/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "26/04/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "03/05/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "10/05/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "17/05/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "24/05/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "31/05/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "07/06/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "14/02/25"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "14/06/2025"
+          },
+          "week3": {
+            "Amount": "600",
+            "date": "21/02/25"
+          },
+          "week4": {
+            "Amount": "600",
+            "date": "28/02/25"
+          },
+          "week5": {
+            "Amount": "600",
+            "date": "01/03/25"
+          },
+          "week6": {
+            "Amount": "600",
+            "date": "08/03/25"
+          },
+          "week7": {
+            "Amount": "600",
+            "date": "15/03/25"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "22/03/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "29/03/2025"
+          }
+        }
+      },
+      "P6": {
+        "P6Stat": {
+          "ClientName": "P6",
+          "CollectionDay": "FRI",
+          "LendDate": " (01/03/25) ",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "07/03/25"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "09/05/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "16/05/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "23/05/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "30/05/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "06/06/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "13/06/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "20/06/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "27/06/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "04/07/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "11/07/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "14/03/25"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "18/07/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/03/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/03/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/04/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/04/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/04/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "25/04/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "02/05/2025"
+          }
+        }
+      },
+      "P7": {
+        "P7Stat": {
+          "ClientName": "P7",
+          "CollectionDay": "SAT",
+          "LendDate": " (14/02/25) ",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "22/02/25"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "26/04/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "03/05/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "10/05/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "17/05/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "24/05/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "31/05/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "07/06/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "14/06/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "21/06/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "28/06/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "01/03/25"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "05/07/2025"
+          },
+          "week3": {
+            "Amount": "600",
+            "date": "08/03/25"
+          },
+          "week4": {
+            "Amount": "600",
+            "date": "15/02/25"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "22/03/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "29/03/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "05/04/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "12/04/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          }
+        }
+      },
+      "P8": {
+        "P8Stat": {
+          "ClientName": "P8",
+          "CollectionDay": "SAT",
+          "LendDate": " (14/02/25) ",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "22/02/25"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "26/04/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "03/05/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "10/05/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "17/05/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "24/05/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "31/05/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "07/06/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "14/06/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "21/06/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "28/06/2025"
+          },
+          "week2": {
+            "Amount": "600",
+            "date": "01/03/25"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "05/07/2025"
+          },
+          "week3": {
+            "Amount": "600",
+            "date": "08/03/25"
+          },
+          "week4": {
+            "Amount": "600",
+            "date": "15/02/25"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "22/03/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "29/03/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "05/04/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "12/04/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          }
+        }
+      },
+      "P9": {
+        "P9Stat": {
+          "ClientName": "P9",
+          "CollectionDay": "WED",
+          "LendDate": " (12/03/25) ",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "19/03/25"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "25/06/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "02/07/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "09/07/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "16/07/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "23/07/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "26/03/2025"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "30/07/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "02/04/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "09/04/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "16/04/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "23/04/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "30/04/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          }
+        }
+      }
+    }
+  },
+  "T1": {
+    "AllStats": {
+      "ActiveLoans": 29,
+      "ClosedLoans": 1,
+      "CurrentBalance": 114700,
+      "TotalLoans": 30,
+      "UpcomingCollection": 221400,
+      "WeeklyPayment": 19800
+    },
+    "ClientData": {
+      "P1": {
+        "P1Stat": {
+          "ClientName": "P1",
+          "CollectionDay": "MON",
+          "LendDate": " (03/03/25) ",
+          "Status": "Active",
+          "TotalAmountPaid": 11400,
+          "WeeksPaid": 19
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "20/04/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "01/05/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "08/05/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "15/05/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "20/04/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "20/04/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "20/04/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "22/04/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          }
+        }
+      },
+      "P10": {
+        "P10Stat": {
+          "ClientName": "P10",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P11": {
+        "P11Stat": {
+          "ClientName": "P11",
+          "CollectionDay": "FRI",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 6600,
+          "WeeksPaid": 11
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "12/06/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "19/06/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "01/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "08/05/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "15/05/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "22/05/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "29/05/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "05/06/2025"
+          }
+        }
+      },
+      "P12": {
+        "P12Stat": {
+          "ClientName": "P12",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 5400,
+          "WeeksPaid": 9
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "01/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "08/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "15/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "24/05/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "31/05/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "07/06/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "14/06/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "21/06/2025"
+          }
+        }
+      },
+      "P13": {
+        "P13Stat": {
+          "ClientName": "P13",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P14": {
+        "P14Stat": {
+          "ClientName": "P14",
+          "CollectionDay": "THU",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P15": {
+        "P15Stat": {
+          "ClientName": "P15",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P16": {
+        "P16Stat": {
+          "ClientName": "P16",
+          "CollectionDay": "FRI",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P17": {
+        "P17Stat": {
+          "ClientName": "P17",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P18": {
+        "P18Stat": {
+          "ClientName": "P18",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P19": {
+        "P19Stat": {
+          "ClientName": "P19",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P2": {
+        "P2Stat": {
+          "ClientName": "P2",
+          "CollectionDay": "MON",
+          "LendDate": " (03/03/25) ",
+          "Status": "Closed",
+          "TotalAmountPaid": 12000,
+          "WeeksPaid": 20
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": "600",
+            "date": "19/04/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "30/04/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          },
+          "week12": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          },
+          "week13": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          },
+          "week14": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          },
+          "week15": {
+            "Amount": 600,
+            "date": "20/04/2025"
+          },
+          "week16": {
+            "Amount": 600,
+            "date": "20/04/2025"
+          },
+          "week17": {
+            "Amount": 600,
+            "date": "20/04/2025"
+          },
+          "week18": {
+            "Amount": 600,
+            "date": "20/04/2025"
+          },
+          "week19": {
+            "Amount": 600,
+            "date": "20/04/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          },
+          "week20": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "19/04/2025"
+          }
+        }
+      },
+      "P20": {
+        "P20Stat": {
+          "ClientName": "P20",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P21": {
+        "P21Stat": {
+          "ClientName": "P21",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P22": {
+        "P22Stat": {
+          "ClientName": "P22",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P23": {
+        "P23Stat": {
+          "ClientName": "P23",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P24": {
+        "P24Stat": {
+          "ClientName": "P24",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P25": {
+        "P25Stat": {
+          "ClientName": "P25",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P26": {
+        "P26Stat": {
+          "ClientName": "P26",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P27": {
+        "P27Stat": {
+          "ClientName": "P27",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P28": {
+        "P28Stat": {
+          "ClientName": "P28",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P29": {
+        "P29Stat": {
+          "ClientName": "P29",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P3": {
+        "P3Stat": {
+          "ClientName": "P3",
+          "CollectionDay": "MON",
+          "LendDate": "19/04/25",
+          "Status": "Active",
+          "TotalAmountPaid": 6000,
+          "WeeksPaid": 10
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "20/04/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "22/06/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "27/04/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "04/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "11/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "18/05/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "25/05/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "01/06/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "08/06/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "15/06/2025"
+          }
+        }
+      },
+      "P30": {
+        "P30Stat": {
+          "ClientName": "P30",
+          "CollectionDay": "MON",
+          "LendDate": "24/5/25",
+          "Status": "Active",
+          "TotalAmountPaid": 3000,
+          "WeeksPaid": 5
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "24/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "31/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "07/06/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "14/06/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "21/06/2025"
+          }
+        }
+      },
+      "P31": {
+        "P31Stat": {
+          "ClientName": "P31",
+          "CollectionDay": "THU",
+          "LendDate": "14/6/25",
+          "Status": "Active",
+          "TotalAmountPaid": 600,
+          "WeeksPaid": 1
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "21/06/2025"
+          }
+        }
+      },
+      "P4": {
+        "P4Stat": {
+          "ClientName": "P4",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 6600,
+          "WeeksPaid": 11
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week10": {
+            "Amount": 600,
+            "date": "12/06/2025"
+          },
+          "week11": {
+            "Amount": 600,
+            "date": "19/06/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "01/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "08/05/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "15/05/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "22/05/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "29/05/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "05/06/2025"
+          }
+        }
+      },
+      "P5": {
+        "P5Stat": {
+          "ClientName": "P5",
+          "CollectionDay": "MON",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 5400,
+          "WeeksPaid": 9
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "26/04/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "03/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "10/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "17/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "24/05/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "31/05/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "07/06/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "14/06/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "21/06/2025"
+          }
+        }
+      },
+      "P6": {
+        "P6Stat": {
+          "ClientName": "P6",
+          "CollectionDay": "FRI",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P7": {
+        "P7Stat": {
+          "ClientName": "P7",
+          "CollectionDay": "FRI",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P8": {
+        "P8Stat": {
+          "ClientName": "P8",
+          "CollectionDay": "TUE",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 4200,
+          "WeeksPaid": 7
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "07/05/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "14/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "21/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "28/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "04/06/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "11/06/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "18/06/2025"
+          }
+        }
+      },
+      "P9": {
+        "P9Stat": {
+          "ClientName": "P9",
+          "CollectionDay": "TUE",
+          "LendDate": "30/4/25",
+          "Status": "Active",
+          "TotalAmountPaid": 5400,
+          "WeeksPaid": 9
+        },
+        "collectionData": {
+          "week1": {
+            "Amount": 600,
+            "date": "24/04/2025"
+          },
+          "week2": {
+            "Amount": 600,
+            "date": "01/05/2025"
+          },
+          "week3": {
+            "Amount": 600,
+            "date": "08/05/2025"
+          },
+          "week4": {
+            "Amount": 600,
+            "date": "15/05/2025"
+          },
+          "week5": {
+            "Amount": 600,
+            "date": "22/05/2025"
+          },
+          "week6": {
+            "Amount": 600,
+            "date": "29/05/2025"
+          },
+          "week7": {
+            "Amount": 600,
+            "date": "05/06/2025"
+          },
+          "week8": {
+            "Amount": 600,
+            "date": "12/06/2025"
+          },
+          "week9": {
+            "Amount": 600,
+            "date": "19/06/2025"
+          }
+        }
+      }
+    }
+  }
+}

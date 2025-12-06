@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Lending Model Simulator</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/date-fns@2.30.0/cdn.min.js"></script>
+
+    <style>
+      :root {
+        --primary-color: #007bff;
+        --primary-dark: #0056b3;
+        --success-color: #28a745;
+        --danger-color: #dc3545;
+        --background-color: #f8f9fa;
+        --card-background: #ffffff;
+        --text-color: #343a40;
+        --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+        --border-radius: 8px;
+      }
+      body {
+        font-family: "Segoe UI", Roboto, Arial, sans-serif;
+        background: var(--background-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 40px 20px;
+        display: flex;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      #app-container {
+        width: 100%;
+        max-width: 1200px;
+        display: flex;
+        gap: 30px;
+      }
+      #input-panel {
+        flex: 0 0 350px;
+      }
+      .card {
+        background: var(--card-background);
+        padding: 30px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        margin-bottom: 30px;
+      }
+      h1 {
+        color: var(--primary-color);
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 10px;
+        text-align: center;
+      }
+      .input-group {
+        margin-bottom: 20px;
+      }
+      label {
+        display: block;
+        margin-bottom: 6px;
+        font-weight: 600;
+        color: var(--primary-color);
+        font-size: 0.95rem;
+      }
+      input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+      button {
+        width: 100%;
+        padding: 12px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 1.05rem;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: var(--primary-dark);
+      }
+      #simulation-log-container h2 {
+        font-size: 1.1rem;
+        color: var(--text-color);
+        margin-top: 0;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #eee;
+      }
+      #simulation-log {
+        min-height: 100px;
+        max-height: 250px;
+        overflow-y: auto;
+        background: #f1f1f1;
+        padding: 10px;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.8rem;
+        white-space: pre-wrap;
+      }
+      #results-panel {
+        flex: 1;
+        display: none;
+      }
+      #dashboard {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+      }
+      .metric-card {
+        background-color: #f1f8ff;
+        padding: 20px;
+        border-radius: var(--border-radius);
+        border-left: 5px solid var(--primary-color);
+      }
+      .metric-card.profit {
+        border-left-color: var(--success-color);
+        background-color: #e6ffed;
+      }
+      .metric-card.loss {
+        border-left-color: var(--danger-color);
+        background-color: #fff0f0;
+      }
+      .metric-title {
+        font-size: 0.9rem;
+        color: #6c757d;
+        margin-bottom: 5px;
+      }
+      .metric-value {
+        font-size: 1.5rem;
+        font-weight: 700;
+      }
+      #detailed-summary {
+        border-top: 1px solid #eee;
+        padding-top: 20px;
+      }
+      .summary-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 8px 0;
+        border-bottom: 1px dashed #eee;
+      }
+      .summary-item .label {
+        font-weight: 500;
+      }
+      #loader-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.9);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: var(--border-radius);
+        z-index: 10;
+      }
+      .spinner {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-top: 4px solid var(--primary-color);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+      }
+      #loader-overlay p {
+        margin-top: 15px;
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      @media (max-width: 900px) {
+        #app-container {
+          flex-direction: column;
+        }
+        #input-panel {
+          flex: 1 1 auto;
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app-container">
+      <div id="input-panel">
+        <div class="card" style="position: relative">
+          <h1>Model Input</h1>
+          <form id="loan-form">
+            <div class="input-group">
+              <label for="investmentAmount">Initial Investment (₹)</label>
+              <input
+                type="number"
+                id="investmentAmount"
+                value="100000"
+                min="9500"
+                required
+              />
+            </div>
+            <div class="input-group">
+              <label for="modelPeriod">Simulation Duration (Years)</label>
+              <input
+                type="number"
+                id="modelPeriod"
+                value="1"
+                min="1"
+                max="50"
+                required
+              />
+            </div>
+            <button type="submit" id="calculate-btn">Run Simulation</button>
+          </form>
+
+          <div id="loader-overlay">
+            <div class="spinner"></div>
+            <p>Calculating Model Path...</p>
+          </div>
+        </div>
+
+        <div id="simulation-log-container" class="card">
+          <h2>Simulation Log (First 100 Steps)</h2>
+          <pre id="simulation-log">
+Enter parameters and run the simulation to see the progress log.</pre
+          >
+        </div>
+      </div>
+
+      <div id="results-panel" class="card">
+        <h2>Financial Results Dashboard</h2>
+        <div id="dashboard"></div>
+        <div id="detailed-summary">
+          <h2>Detailed Summary</h2>
+          <div class="summary-item">
+            <span class="label">Total Clients Initialized:</span
+            ><span id="res-initial-lends">0</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">Total Clients Serviced (Closed):</span
+            ><span id="res-closed-clients">0</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">Active Clients Remaining:</span
+            ><span id="res-active-clients">0</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">Total Simulation Days:</span
+            ><span id="res-days">0</span>
+          </div>
+          <div class="summary-item">
+            <span class="label">Total Simulation Period:</span
+            ><span id="res-period">0 Years</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const { addWeeks, addDays, getDay, isSameDay } = dateFns;
+
+        function formatIndianCurrency(amount) {
+          return new Intl.NumberFormat("en-IN", {
+            style: "currency",
+            currency: "INR",
+            maximumFractionDigits: 0,
+          }).format(amount);
+        }
+
+        class ClientObject {
+          static TOTAL_DEBT = 12000;
+          static WEEKLY_COLLECTION = 600;
+          constructor(date_) {
+            this.id = Math.random().toString(36).substring(2, 9);
+            this.debtPayed = 0;
+            this.weeksLeft = 20;
+            this.loanSanctionedDate = new Date(date_);
+            this.payDay = getDay(this.loanSanctionedDate);
+            this.nextDueDate = addWeeks(this.loanSanctionedDate, 1);
+            this.isClosed = false;
+          }
+          payDue() {
+            this.debtPayed += ClientObject.WEEKLY_COLLECTION;
+            this.weeksLeft -= 1;
+            this.nextDueDate = addWeeks(this.nextDueDate, 1);
+            if (this.isDueOver()) this.isClosed = true;
+          }
+          isDueOver() {
+            return this.debtPayed >= ClientObject.TOTAL_DEBT;
+          }
+          isDueToday(date_) {
+            return isSameDay(date_, this.nextDueDate);
+          }
+        }
+
+        class LendModelV3 {
+          static LOAN_AMOUNT = 9500;
+          constructor(investmentAmount, years) {
+            this.investmentAmount = investmentAmount;
+            this.modelPeriod = years;
+            this.collectedAmount = investmentAmount;
+            this.today = new Date();
+            this.totalClients = [];
+            this.activeClients = new Map();
+            this.clientWeekMap = new Map();
+            this.closedClients = [];
+            for (let i = 0; i < 7; i++) this.clientWeekMap.set(i, []);
+            this.log = [];
+            this.initializeModel();
+          }
+          initializeModel() {
+            const numOfClients = Math.floor(
+              this.collectedAmount / LendModelV3.LOAN_AMOUNT
+            );
+            this.addClients(numOfClients, this.today);
+          }
+          addClients(num, date_) {
+            for (let i = 0; i < num; i++) {
+              if (this.collectedAmount < LendModelV3.LOAN_AMOUNT) break;
+              this.collectedAmount -= LendModelV3.LOAN_AMOUNT;
+              const client = new ClientObject(date_);
+              this.totalClients.push(client);
+              this.activeClients.set(client.id, client);
+              this.clientWeekMap.get(getDay(date_)).push(client);
+            }
+          }
+          collectDues() {
+            const todayDay = getDay(this.today);
+            const workingList = [...(this.clientWeekMap.get(todayDay) || [])];
+            const clientsToCloseIds = [];
+            for (const client of workingList) {
+              if (client.isDueToday(this.today) && !client.isClosed) {
+                client.payDue();
+                this.collectedAmount += ClientObject.WEEKLY_COLLECTION;
+                if (client.isDueOver()) clientsToCloseIds.push(client.id);
+              }
+            }
+            if (clientsToCloseIds.length) this.closeAccounts(clientsToCloseIds);
+          }
+          closeAccounts(ids) {
+            for (const clientId of ids) {
+              const client = this.activeClients.get(clientId);
+              if (!client) continue;
+              client.isClosed = true;
+              this.closedClients.push(client);
+              this.activeClients.delete(clientId);
+              const payDayList = this.clientWeekMap.get(client.payDay);
+              if (payDayList)
+                this.clientWeekMap.set(
+                  client.payDay,
+                  payDayList.filter((c) => c.id !== clientId)
+                );
+            }
+          }
+          startModelV3() {
+            let loopCounter = 0;
+            while (
+              this.activeClients.size > 0 &&
+              loopCounter < 365 * this.modelPeriod * 2
+            ) {
+              const nextDueDates = Array.from(this.activeClients.values()).map(
+                (c) => c.nextDueDate
+              );
+              this.today = new Date(
+                Math.min(...nextDueDates.map((d) => d.getTime()))
+              );
+              this.collectDues();
+              const newClientsCount = Math.floor(
+                this.collectedAmount / LendModelV3.LOAN_AMOUNT
+              );
+              if (newClientsCount > 0)
+                this.addClients(newClientsCount, this.today);
+              if (this.log.length < 100)
+                this.log.push(
+                  `Day ${loopCounter + 1}: Active ${
+                    this.activeClients.size
+                  }, Collected ${formatIndianCurrency(this.collectedAmount)}`
+                );
+              loopCounter++;
+            }
+            return {
+              totalLends: this.totalClients.length,
+              collected: this.collectedAmount,
+              profit: this.collectedAmount - this.investmentAmount,
+              activeRemaining: this.activeClients.size,
+              closedCount: this.closedClients.length,
+              log: this.log,
+            };
+          }
+        }
+
+        const form = document.getElementById("loan-form");
+        const resultsPanel = document.getElementById("results-panel");
+        const loaderOverlay = document.getElementById("loader-overlay");
+        const logElement = document.getElementById("simulation-log");
+
+        form.addEventListener("submit", (e) => {
+          e.preventDefault();
+          const investmentAmount = parseFloat(
+            document.getElementById("investmentAmount").value
+          );
+          const modelPeriod = parseInt(
+            document.getElementById("modelPeriod").value
+          );
+          if (investmentAmount < 9500 || modelPeriod < 1) {
+            alert("Investment must be ≥ ₹9500 and period ≥ 1 year");
+            return;
+          }
+          loaderOverlay.style.display = "flex";
+          resultsPanel.style.display = "none";
+          logElement.textContent = "Calculating simulation...";
+          setTimeout(() => {
+            const model = new LendModelV3(investmentAmount, modelPeriod);
+            const results = model.startModelV3();
+            loaderOverlay.style.display = "none";
+            displayResults(results);
+          }, 50);
+        });
+
+        function displayResults(results) {
+          resultsPanel.style.display = "block";
+          const dashboard = document.getElementById("dashboard");
+          dashboard.innerHTML = "";
+          const profitClass = results.profit >= 0 ? "profit" : "loss";
+          const profitLabel = results.profit >= 0 ? "Net Profit" : "Net Loss";
+          const metrics = [
+            {
+              title: "Total Collected",
+              value: formatIndianCurrency(results.collected),
+              class: "",
+            },
+            {
+              title: profitLabel,
+              value: formatIndianCurrency(results.profit),
+              class: profitClass,
+            },
+            {
+              title: "Total Clients",
+              value: results.totalLends.toLocaleString(),
+              class: "",
+            },
+          ];
+          metrics.forEach((m) => {
+            dashboard.innerHTML += `<div class="metric-card ${m.class}"><div class="metric-title">${m.title}</div><div class="metric-value">${m.value}</div></div>`;
+          });
+          document.getElementById("res-initial-lends").textContent =
+            results.totalLends;
+          document.getElementById("res-closed-clients").textContent =
+            results.closedCount;
+          document.getElementById("res-active-clients").textContent =
+            results.activeRemaining;
+          document.getElementById("res-days").textContent = results.log.length;
+          document.getElementById("res-period").textContent = `${
+            results.log.length / 365
+          } Years`;
+          logElement.textContent = results.log.join("\n");
+        }
+      });
+    </script>
+  </body>
+</html>
