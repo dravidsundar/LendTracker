@@ -26,7 +26,9 @@ const userSlice = createSlice({
           TotalAmountPaid: 0,
           CollectionDay: weekDay,
         },
-        collectionData: {},
+        collectionData: {
+          week1: { Amount: 0, date: "need to be added" },
+        },
       };
       state.allStats.WeeklyCollection += 600;
       state.allStats.TotalLoans += 1;
@@ -34,17 +36,26 @@ const userSlice = createSlice({
     },
     editClient: (state, action) => {
       const { ClientName, editLendDate, editCollectionDay } = action.payload;
-      console.log(ClientName);
+      if (!state.clientData[ClientName]) {
+        state.clientData[ClientName] = {
+          collectionData: {
+            week1: { Amount: 0, date: "need to be added" },
+          },
+          [`${ClientName}Stat`]: {
+            ClientName,
+            LendDate: "",
+            CollectionDay: "",
+            Status: "Active",
+            WeeksPaid: 0,
+            TotalAmountPaid: 0,
+          },
+        };
+      }
       state.clientData[ClientName][`${ClientName}Stat`] = {
         ...state.clientData[ClientName][`${ClientName}Stat`],
         LendDate: editLendDate,
         CollectionDay: editCollectionDay,
       };
-      console.log({
-        ...state.clientData[ClientName][`${ClientName}Stat`],
-        LendDate: editLendDate,
-        CollectionDay: editCollectionDay,
-      });
     },
     addEntry: (state, action) => {
       const { entryAmount, entryDate, entryStatus, clientId } = action.payload;
@@ -184,6 +195,7 @@ const userSlice = createSlice({
           (20 - (clientStat.WeeksPaid || 0)) * 600;
       });
 
+      recalculatedStats.TotalLoans += Object.keys(state.deletedClientData).length;
       recalculatedStats.WeeklyCollection = recalculatedStats.ActiveLoans * 600;
       state.allStats = recalculatedStats;
     },
@@ -220,6 +232,7 @@ const userSlice = createSlice({
           (20 - (clientStat.WeeksPaid || 0)) * 600;
       });
 
+      recalculatedStats.TotalLoans += Object.keys(state.deletedClientData).length;
       recalculatedStats.WeeklyCollection = recalculatedStats.ActiveLoans * 600;
       state.allStats = recalculatedStats;
     },

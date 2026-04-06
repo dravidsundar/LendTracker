@@ -406,6 +406,18 @@
   font-size: 12px;
 }
 
+.empty-state-note {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.deleted-client-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
 .table-title h3 {
   font-size: 20px;
   font-weight: 700;

@@ -11,6 +11,7 @@ import Home from "./Pages/dashBoardPage/SubPages/Home.jsx";
 import Client from "./Pages/dashBoardPage/SubPages/Client.jsx";
 import NotFound from "./Pages/404Page/404Page.jsx";
 import Stimulator from "./Pages/dashBoardPage/SubPages/Stimulator.jsx";
+import RecentlyDeleted from "./Pages/dashBoardPage/SubPages/RecentlyDeleted.jsx";
 import { Provider } from "react-redux";
 import { store } from "./learn/store.js";
 import DataFetcherWrapper from "./Pages/dashBoardPage/DataFetcherWrapper.jsx";
@@ -71,6 +72,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="clients/:clientId" element={<Client />} />
             <Route path="stimulator" element={<Stimulator />} />
+            <Route path="recently-deleted" element={<RecentlyDeleted />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -17,7 +17,44 @@ import {
 } from "./paymentSchedule.js";
 import { ReadDataFromStore } from "./store.js";
 
-function recalculateAllStats(clientData, previousAllStats = {}) {
+function buildClientPlaceholderCollectionData(collectionData = {}) {
+  if (collectionData && Object.keys(collectionData).length > 0) {
+    return collectionData;
+  }
+
+  return {
+    week1: { Amount: 0, date: "need to be added" },
+  };
+}
+
+function buildSafeClientState(clientId, clientRecord = {}) {
+  const clientStat = clientRecord?.[`${clientId}Stat`] || {};
+  const normalizedCollectionData = normalizeCollectionData(
+    clientRecord?.collectionData,
+    true
+  );
+  const hasRealEntries = Object.keys(normalizedCollectionData).length > 0;
+
+  return {
+    clientStat: {
+      ClientName: clientStat.ClientName || clientId,
+      LendDate: clientStat.LendDate || "",
+      CollectionDay: clientStat.CollectionDay || "",
+      Status: clientStat.Status || "Active",
+      WeeksPaid: clientStat.WeeksPaid || 0,
+      TotalAmountPaid: clientStat.TotalAmountPaid || 0,
+    },
+    collectionData: hasRealEntries
+      ? normalizedCollectionData
+      : buildClientPlaceholderCollectionData(clientRecord?.collectionData),
+  };
+}
+
+function recalculateAllStats(
+  clientData,
+  previousAllStats = {},
+  deletedClientData = {}
+) {
   const computedStats = {
     TotalLoans: 0,
     ActiveLoans: 0,
@@ -42,6 +79,7 @@ function recalculateAllStats(clientData, previousAllStats = {}) {
       Math.max(0, 20 - (clientStat.WeeksPaid || 0)) * 600;
   });
 
+  computedStats.TotalLoans += Object.keys(deletedClientData || {}).length;
   computedStats.WeeklyCollection = computedStats.ActiveLoans * 600;
 
   return {
@@ -70,13 +108,16 @@ export const updateNewClient = ({ user, clientName, date, weekDay }) => {
         },
       };
       await update(ref(db, `Users/${user}/ClientData`), structure);
-      const { WeeklyCollection, TotalLoans, ActiveLoans } =
-        ReadDataFromStore.getAllStats();
-      await update(ref(db, `Users/${user}/AllStats`), {
-        WeeklyCollection: (WeeklyCollection || 0) + 600,
-        TotalLoans: (TotalLoans || 0) + 1,
-        ActiveLoans: (ActiveLoans || 0) + 1,
-      });
+      const nextClientData = {
+        ...ReadDataFromStore.getAllClientData(),
+        ...structure,
+      };
+      const nextAllStats = recalculateAllStats(
+        nextClientData,
+        ReadDataFromStore.getAllStats(),
+        ReadDataFromStore.getDeletedClientData()
+      );
+      await update(ref(db, `Users/${user}/AllStats`), nextAllStats);
       dispatch(
         addNewClient({ clientName: clientName, date: date, weekDay: weekDay })
       );
@@ -94,14 +135,19 @@ export function updateEditClient({
 }) {
   return async (dispatch) => {
     try {
-      console.log(`Users/${user}/ClientData/${ClientName}/${ClientName}Stat`);
-      await update(
-        ref(db, `Users/${user}/ClientData/${ClientName}/${ClientName}Stat`),
-        {
-          LendDate: editLendDate,
-          CollectionDay: editCollectionDay,
-        }
-      );
+      const clientRecord = ReadDataFromStore.getAllClientData()?.[ClientName] || {};
+      const safeClient = buildSafeClientState(ClientName, clientRecord);
+      const nextClientRecord = {
+        ...clientRecord,
+        collectionData: safeClient.collectionData,
+        [`${ClientName}Stat`]: {
+          ...safeClient.clientStat,
+          LendDate: editLendDate || safeClient.clientStat.LendDate,
+          CollectionDay:
+            editCollectionDay || safeClient.clientStat.CollectionDay,
+        },
+      };
+      await update(ref(db, `Users/${user}/ClientData/${ClientName}`), nextClientRecord);
       dispatch(
         editClient({
           ClientName: ClientName,
@@ -124,10 +170,11 @@ export function updateAddEntry({
   clientId,
 }) {
   return async (dispatch) => {
-    const { clientStat, clientCollectionData } =
-      ReadDataFromStore.getClientSpecificData(clientId);
+    const clientRecord = ReadDataFromStore.getAllClientData()?.[clientId] || {};
+    const safeClient = buildSafeClientState(clientId, clientRecord);
+    const clientStat = safeClient.clientStat;
     const normalizedCollectionData = normalizeCollectionData(
-      clientCollectionData,
+      safeClient.collectionData,
       true
     );
     const weeksRegistered =
@@ -191,10 +238,11 @@ export function updateEditEntry({
   editWeek,
 }) {
   const allStats = { ...ReadDataFromStore.getAllStats() };
-  const { clientStat, clientCollectionData } =
-    ReadDataFromStore.getClientSpecificData(clientId);
+  const clientRecord = ReadDataFromStore.getAllClientData()?.[clientId] || {};
+  const safeClient = buildSafeClientState(clientId, clientRecord);
+  const clientStat = safeClient.clientStat;
   const sortedClientCollectionData = normalizeCollectionData(
-    clientCollectionData,
+    safeClient.collectionData,
     true
   );
   const nClientStat = { ...clientStat };
@@ -265,6 +313,11 @@ export function updateDeleteClient({ user, clientId }) {
       throw new Error("Client not found");
     }
 
+    const clientStatus = allClientData[clientId]?.[`${clientId}Stat`]?.Status;
+    if (clientStatus !== "Closed") {
+      throw new Error("Only closed loans can be moved to Recently Deleted");
+    }
+
     const removedClientData = allClientData[clientId];
     deletedClientData[clientId] = {
       ...removedClientData,
@@ -272,31 +325,11 @@ export function updateDeleteClient({ user, clientId }) {
     };
     delete allClientData[clientId];
 
-    const recalculatedStats = {
-      TotalLoans: 0,
-      ActiveLoans: 0,
-      ClosedLoans: 0,
-      WeeklyCollection: 0,
-      UpcomingCollection: 0,
-    };
-
-    Object.entries(allClientData).forEach(([key, value]) => {
-      const clientStat = value?.[`${key}Stat`];
-      if (!clientStat) {
-        return;
-      }
-
-      recalculatedStats.TotalLoans += 1;
-      if (clientStat.Status === "Active") {
-        recalculatedStats.ActiveLoans += 1;
-      } else if (clientStat.Status === "Closed") {
-        recalculatedStats.ClosedLoans += 1;
-      }
-      recalculatedStats.UpcomingCollection +=
-        (20 - (clientStat.WeeksPaid || 0)) * 600;
-    });
-
-    recalculatedStats.WeeklyCollection = recalculatedStats.ActiveLoans * 600;
+    const recalculatedStats = recalculateAllStats(
+      allClientData,
+      ReadDataFromStore.getAllStats(),
+      deletedClientData
+    );
 
     try {
       await update(ref(db, `Users/${user}`), {
@@ -307,6 +340,47 @@ export function updateDeleteClient({ user, clientId }) {
       dispatch(deleteClient({ clientId, clientData: deletedClientData[clientId] }));
     } catch (error) {
       console.log("Firebase update failed for delete client", error);
+      throw error;
+    }
+  };
+}
+
+export function updatePermanentDeleteClient({ user, clientId }) {
+  return async (dispatch) => {
+    const allClientData = { ...ReadDataFromStore.getAllClientData() };
+    const deletedClientData = { ...ReadDataFromStore.getDeletedClientData() };
+
+    const existsInActive = Boolean(allClientData[clientId]);
+    const existsInDeleted = Boolean(deletedClientData[clientId]);
+
+    if (!existsInActive && !existsInDeleted) {
+      throw new Error("Client not found");
+    }
+
+    delete allClientData[clientId];
+    delete deletedClientData[clientId];
+
+    const nextAllStats = recalculateAllStats(
+      allClientData,
+      ReadDataFromStore.getAllStats(),
+      deletedClientData
+    );
+
+    try {
+      await update(ref(db, `Users/${user}`), {
+        ClientData: allClientData,
+        DeletedClientData: deletedClientData,
+        AllStats: nextAllStats,
+      });
+      dispatch(
+        setUserData({
+          allStats: nextAllStats,
+          clientData: allClientData,
+          deletedClientData,
+        })
+      );
+    } catch (error) {
+      console.log("Firebase update failed for permanent delete", error);
       throw error;
     }
   };
@@ -328,7 +402,8 @@ export function updateRestoreClient({ user, clientId }) {
 
     const nextAllStats = recalculateAllStats(
       allClientData,
-      ReadDataFromStore.getAllStats()
+      ReadDataFromStore.getAllStats(),
+      deletedClientData
     );
 
     try {
@@ -349,14 +424,16 @@ export function updateBatchEntries({ user, today = new Date() }) {
   return async (dispatch) => {
     const allClientData = ReadDataFromStore.getAllClientData();
     const allStats = ReadDataFromStore.getAllStats();
+    const deletedClientData = ReadDataFromStore.getDeletedClientData();
     const preview = buildBatchUpdatePreview(allClientData, today);
 
     let didChange = false;
     const nextClientData = Object.fromEntries(
       Object.entries(allClientData || {}).map(([clientId, value]) => {
-        const clientStat = value?.[`${clientId}Stat`] || {};
+        const safeClient = buildSafeClientState(clientId, value);
+        const clientStat = safeClient.clientStat;
         const normalizedCollectionData = normalizeCollectionData(
-          value?.collectionData,
+          safeClient.collectionData,
           true
         );
         const scheduledDueDates = getScheduledDueDates({
@@ -413,7 +490,11 @@ export function updateBatchEntries({ user, today = new Date() }) {
       return preview;
     }
 
-    const nextAllStats = recalculateAllStats(nextClientData, allStats);
+    const nextAllStats = recalculateAllStats(
+      nextClientData,
+      allStats,
+      deletedClientData
+    );
 
     try {
       await update(ref(db, `Users/${user}`), {
@@ -424,6 +505,7 @@ export function updateBatchEntries({ user, today = new Date() }) {
         setUserData({
           allStats: nextAllStats,
           clientData: nextClientData,
+          deletedClientData,
         })
       );
       return preview;

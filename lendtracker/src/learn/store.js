@@ -28,6 +28,13 @@ export class ReadDataFromStore {
     return store.getState()?.user?.deletedClientData || {};
   }
 
+  static getHistoricalLoanCount() {
+    return (
+      Object.keys(this.getAllClientData() || {}).length +
+      Object.keys(this.getDeletedClientData() || {}).length
+    );
+  }
+
   static getClientSpecificData(id) {
     const allClientData = this.getAllClientData();
     if (!allClientData[id]) {
@@ -42,7 +49,7 @@ export class ReadDataFromStore {
   static getHomePageStatCardData() {
     const data = { ...this.getAllStats() };
     data.WeeklyPayment = (data.ActiveLoans || 0) * 600;
-    data.TotalLoans = data.TotalLoans || 0;
+    data.TotalLoans = this.getHistoricalLoanCount();
     data.ActiveLoans = data.ActiveLoans || 0;
     data.ClosedLoans = data.ClosedLoans || 0;
     return data;
@@ -104,8 +111,19 @@ export class ReadDataFromStore {
   }
 
   static getNextClientId() {
-    const clientData = this.getAllClientData();
-    return Object.keys(clientData || {}).length + 1;
+    const activeClientIds = Object.keys(this.getAllClientData() || {});
+    const deletedClientIds = Object.keys(this.getDeletedClientData() || {});
+    const allClientIds = [...activeClientIds, ...deletedClientIds];
+
+    const highestClientNumber = allClientIds.reduce((highest, clientId) => {
+      const numericValue = parseInt(String(clientId).replace(/\D/g, ""), 10);
+      if (Number.isNaN(numericValue)) {
+        return highest;
+      }
+      return Math.max(highest, numericValue);
+    }, 0);
+
+    return highestClientNumber + 1;
   }
 
   static getNextEntryWeek(clientId) {
@@ -180,6 +198,7 @@ export class ReadDataFromStore {
       }
       weeks += 20 - clientStat.WeeksPaid;
     });
+    data.TotalLoans = this.getHistoricalLoanCount();
     data.upComingCollection = weeks * 600;
     data.WeeklyCollection = data.ActiveLoans * 600;
     return data;

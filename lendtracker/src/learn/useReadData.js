@@ -42,7 +42,7 @@ export function useDayTableData() {
 }
 
 export function useGetNextClientID() {
-  useSelector((state) => state.user.clientData);
+  useSelector((state) => state.user);
   return ReadDataFromStore.getNextClientId();
 }
 

@@ -5,12 +5,10 @@ import { useOutletContext, useNavigate, useLocation } from "react-router-dom";
 import {
   updateBatchEntries,
   updateNewClient,
-  updateRestoreClient,
 } from "../../../learn/firebaseUpdates.js";
 import Toast from "../dbComponents/Toast.jsx";
 import {
   useAllClientData,
-  useDeletedClientData,
   useGetHomePageStatData,
   useHomePageClientTableData,
   useDayTableData,
@@ -28,7 +26,6 @@ export default function Home() {
   const [addClient, setAddClient] = useState(false);
   const [batchUpdateModalOpen, setBatchUpdateModalOpen] = useState(false);
   const [batchUpdating, setBatchUpdating] = useState(false);
-  const [restoringClientId, setRestoringClientId] = useState(null);
   const [toastMessage, setToastMessage] = useState(null);
   const [filter, setFilter] = useState(() => {
     const saved = localStorage.getItem("homePageFilter");
@@ -42,16 +39,10 @@ export default function Home() {
 
   const homeStats = useGetHomePageStatData();
   const allClientData = useAllClientData();
-  const deletedClientData = useDeletedClientData();
   const homeTableData = useHomePageClientTableData();
   const dayTableData = useDayTableData();
   const nextClientId = useGetNextClientID();
   const batchPreview = buildBatchUpdatePreview(allClientData);
-  const deletedClients = Object.entries(deletedClientData || {}).sort((a, b) => {
-    const dateA = new Date(a[1]?.deletedAt || 0).getTime();
-    const dateB = new Date(b[1]?.deletedAt || 0).getTime();
-    return dateB - dateA;
-  });
   const formattedToday = new Intl.DateTimeFormat("en-US", {
     dateStyle: "long",
   }).format(new Date());
@@ -149,24 +140,6 @@ export default function Home() {
       });
     } finally {
       setBatchUpdating(false);
-    }
-  };
-
-  const handleRestoreClient = async (clientId) => {
-    setRestoringClientId(clientId);
-    try {
-      await dispatch(updateRestoreClient({ user, clientId }));
-      setToastMessage({
-        msg: `Restored ${clientId} successfully`,
-        isWarning: false,
-      });
-    } catch {
-      setToastMessage({
-        msg: `Failed to restore ${clientId}`,
-        isWarning: true,
-      });
-    } finally {
-      setRestoringClientId(null);
     }
   };
 
@@ -405,43 +378,6 @@ export default function Home() {
               </div>
             </form>
           </div>
-
-          {deletedClients.length > 0 && (
-            <div className="deleted-clients-box">
-              <div className="deleted-clients-header">
-                <h4>Recently Deleted</h4>
-                <p>Restore a client if it was deleted by mistake.</p>
-              </div>
-              <div className="deleted-clients-list">
-                {deletedClients.map(([clientId, value]) => {
-                  const clientStat = value?.[`${clientId}Stat`];
-                  const deletedAt = value?.deletedAt
-                    ? new Intl.DateTimeFormat("en-US", {
-                        dateStyle: "medium",
-                        timeStyle: "short",
-                      }).format(new Date(value.deletedAt))
-                    : "Unknown time";
-                  return (
-                    <div key={clientId} className="deleted-client-item">
-                      <div>
-                        <strong>{clientStat?.ClientName || clientId}</strong>
-                        <p>Deleted: {deletedAt}</p>
-                      </div>
-                      <button
-                        type="button"
-                        className="btn-secondary"
-                        onClick={() => handleRestoreClient(clientId)}
-                        disabled={restoringClientId === clientId}
-                      >
-                        <i className="fas fa-rotate-left"></i>
-                        {restoringClientId === clientId ? "Restoring..." : "Restore"}
-                      </button>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
 
           <div className="table-filters">
             <select

@@ -9,6 +9,7 @@ import {
   updateAddEntry,
   updateEditEntry,
   updateDeleteClient,
+  updatePermanentDeleteClient,
 } from "../../../learn/firebaseUpdates.js";
 import { useForm } from "react-hook-form";
 import Toast from "../dbComponents/Toast.jsx";
@@ -21,6 +22,8 @@ export default function Client() {
   const [editClientModalOpen, setEditClientModalOpen] = useState(false);
   const [deleteClientModalOpen, setDeleteClientModalOpen] = useState(false);
   const [isDeletingClient, setIsDeletingClient] = useState(false);
+  const [isPermanentlyDeletingClient, setIsPermanentlyDeletingClient] =
+    useState(false);
   const { clientId } = useParams();
   const nextWeekId = useGetNextEntryWeek(clientId);
   console.log(nextWeekId);
@@ -111,17 +114,46 @@ export default function Client() {
         replace: true,
         state: {
           toast: {
-            msg: `Successfully deleted ${clientStat.ClientName}`,
+            msg: `Deleted ${clientStat.ClientName}. You can recover it from Recently Deleted.`,
             wrn: false,
           },
         },
       });
     } catch (error) {
       setToast({
-        msg: "Failed to delete client",
+        msg:
+          error?.message === "Only closed loans can be moved to Recently Deleted"
+            ? "Only closed loans can be moved to Recently Deleted"
+            : "Failed to delete client",
         wrn: true,
       });
       setIsDeletingClient(false);
+    }
+  };
+
+  const handlePermanentDeleteClient = async () => {
+    if (!clientStat?.ClientName || isPermanentlyDeletingClient) {
+      return;
+    }
+
+    setIsPermanentlyDeletingClient(true);
+    try {
+      await dispatch(updatePermanentDeleteClient({ user, clientId }));
+      navigate("/", {
+        replace: true,
+        state: {
+          toast: {
+            msg: `Permanently deleted ${clientStat.ClientName}. It no longer counts in total loans.`,
+            wrn: false,
+          },
+        },
+      });
+    } catch {
+      setToast({
+        msg: "Failed to permanently delete client",
+        wrn: true,
+      });
+      setIsPermanentlyDeletingClient(false);
     }
   };
   return (
@@ -211,9 +243,15 @@ export default function Client() {
                   </div>
                   <div className="modal-form">
                     <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.6 }}>
-                      Delete <strong>{clientStat?.ClientName}</strong> and all
-                      payment entries? This will move the client to Recently
-                      Deleted so you can restore it later if needed.
+                      {clientStat?.Status === "Closed"
+                        ? `Move ${clientStat?.ClientName} to Recently Deleted so you can restore it later if needed.`
+                        : `${clientStat?.ClientName} is not closed yet, so it cannot be moved to Recently Deleted.`}
+                    </p>
+                    <p style={{ color: "#6b7280", lineHeight: 1.6 }}>
+                      If this client was added by mistake or is no longer
+                      needed, you can permanently delete it instead. Permanent
+                      delete removes it completely and it will not be counted in
+                      total loans.
                     </p>
                     <div className="form-actions">
                       <button
@@ -228,9 +266,25 @@ export default function Client() {
                         type="button"
                         className="btn-danger"
                         onClick={handleDeleteClient}
-                        disabled={isDeletingClient}
+                        disabled={
+                          isDeletingClient ||
+                          isPermanentlyDeletingClient ||
+                          clientStat?.Status !== "Closed"
+                        }
                       >
-                        {isDeletingClient ? "Deleting..." : "Confirm Delete"}
+                        {isDeletingClient
+                          ? "Deleting..."
+                          : "Move to Recently Deleted"}
+                      </button>
+                      <button
+                        type="button"
+                        className="btn-danger"
+                        onClick={handlePermanentDeleteClient}
+                        disabled={isDeletingClient || isPermanentlyDeletingClient}
+                      >
+                        {isPermanentlyDeletingClient
+                          ? "Deleting..."
+                          : "Permanently Delete"}
                       </button>
                     </div>
                   </div>

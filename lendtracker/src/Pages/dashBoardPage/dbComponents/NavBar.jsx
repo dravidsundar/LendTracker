@@ -57,6 +57,15 @@ export default function NavBar({
             <span>Stimulator</span>
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink
+            to="recently-deleted"
+            className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
+          >
+            <i className="fas fa-trash-restore"></i>
+            <span>Recently Deleted</span>
+          </NavLink>
+        </li>
       </ul>
 
       <div className="sidebar-footer">
