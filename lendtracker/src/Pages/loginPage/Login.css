@@ -272,3 +272,27 @@
 .login-modal-actions .btn-login {
   flex: 1;
 }
+
+.reset-feedback {
+  margin-top: 4px;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.reset-feedback.success-state {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+}
+
+.reset-feedback.error-state {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.reset-feedback-details {
+  margin: 8px 0 0;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.5;
+}

@@ -88,24 +88,42 @@ export function LoginForm() {
     setResetFeedback(null);
 
     try {
-      await sendPasswordResetEmail(auth, email);
+      await sendPasswordResetEmail(auth, email, {
+        url: `${window.location.origin}/login`,
+        handleCodeInApp: false,
+      });
       setResetFeedback({
-        message: "Password reset email sent successfully.",
+        message:
+          "If this email is registered in Firebase Auth, a reset link has been sent. Check inbox, spam, and promotions.",
         isError: false,
+        details:
+          "If you still do not receive it, confirm the account exists in Firebase Authentication and that Email/Password sign-in is enabled.",
       });
     } catch (err) {
       let message = "Failed to send reset email. Please try again.";
+      let details =
+        "Check Firebase Authentication settings, authorized domains, and the password reset email template.";
       if (err.code === "auth/user-not-found") {
         message = "No account was found with that email address.";
+        details =
+          "This email must exist under Firebase Authentication users, not only in Realtime Database.";
       } else if (err.code === "auth/invalid-email") {
         message = "Please enter a valid email address.";
       } else if (err.code === "auth/too-many-requests") {
         message = "Too many requests. Please wait and try again.";
+      } else if (err.code === "auth/missing-continue-uri") {
+        message = "Reset link configuration is incomplete.";
+      } else if (err.code === "auth/unauthorized-continue-uri") {
+        message = "This app domain is not authorized in Firebase.";
+        details =
+          "Add this domain in Firebase Console -> Authentication -> Settings -> Authorized domains.";
       }
 
+      console.error("Password reset failed:", err.code, err.message);
       setResetFeedback({
         message,
         isError: true,
+        details: `${details}${err.code ? ` Error code: ${err.code}` : ""}`,
       });
     } finally {
       setResetLoading(false);
@@ -219,12 +237,23 @@ export function LoginForm() {
             </div>
 
             {resetFeedback && (
-              <p
-                className="error"
-                style={{ color: resetFeedback.isError ? "red" : "green" }}
+              <div
+                className={`reset-feedback ${
+                  resetFeedback.isError ? "error-state" : "success-state"
+                }`}
               >
-                {resetFeedback.message}
-              </p>
+                <p
+                  className="error"
+                  style={{ color: resetFeedback.isError ? "red" : "green" }}
+                >
+                  {resetFeedback.message}
+                </p>
+                {resetFeedback.details && (
+                  <p className="reset-feedback-details">
+                    {resetFeedback.details}
+                  </p>
+                )}
+              </div>
             )}
 
             <div className="login-modal-actions">
