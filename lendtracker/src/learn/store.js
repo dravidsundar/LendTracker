@@ -24,6 +24,10 @@ export class ReadDataFromStore {
     return store.getState()?.user?.clientData || {};
   }
 
+  static getDeletedClientData() {
+    return store.getState()?.user?.deletedClientData || {};
+  }
+
   static getClientSpecificData(id) {
     const allClientData = this.getAllClientData();
     if (!allClientData[id]) {

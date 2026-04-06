@@ -14,6 +14,7 @@ export default function DataFetcherWrapper({ children, user }) {
           setUserData({
             allStats: data.AllStats || {},
             clientData: data.ClientData || {},
+            deletedClientData: data.DeletedClientData || {},
           })
         );
       } else {

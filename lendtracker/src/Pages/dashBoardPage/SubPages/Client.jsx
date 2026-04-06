@@ -212,7 +212,8 @@ export default function Client() {
                   <div className="modal-form">
                     <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.6 }}>
                       Delete <strong>{clientStat?.ClientName}</strong> and all
-                      payment entries? This action cannot be undone.
+                      payment entries? This will move the client to Recently
+                      Deleted so you can restore it later if needed.
                     </p>
                     <div className="form-actions">
                       <button

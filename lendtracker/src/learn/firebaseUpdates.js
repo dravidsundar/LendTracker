@@ -1,4 +1,4 @@
-import { ref, update, remove } from "firebase/database";
+import { ref, update } from "firebase/database";
 import { db } from "../firebase-config.js";
 import {
   addEntry,
@@ -6,6 +6,7 @@ import {
   editClient,
   editEntry,
   deleteClient,
+  restoreClient,
   setUserData,
 } from "./slice.js";
 import { normalizeCollectionData } from "./collectionData.js";
@@ -259,10 +260,16 @@ export function updateEditEntry({
 export function updateDeleteClient({ user, clientId }) {
   return async (dispatch) => {
     const allClientData = { ...ReadDataFromStore.getAllClientData() };
+    const deletedClientData = { ...ReadDataFromStore.getDeletedClientData() };
     if (!allClientData[clientId]) {
       throw new Error("Client not found");
     }
 
+    const removedClientData = allClientData[clientId];
+    deletedClientData[clientId] = {
+      ...removedClientData,
+      deletedAt: new Date().toISOString(),
+    };
     delete allClientData[clientId];
 
     const recalculatedStats = {
@@ -292,11 +299,47 @@ export function updateDeleteClient({ user, clientId }) {
     recalculatedStats.WeeklyCollection = recalculatedStats.ActiveLoans * 600;
 
     try {
-      await remove(ref(db, `Users/${user}/ClientData/${clientId}`));
-      await update(ref(db, `Users/${user}/AllStats`), recalculatedStats);
-      dispatch(deleteClient({ clientId }));
+      await update(ref(db, `Users/${user}`), {
+        ClientData: allClientData,
+        DeletedClientData: deletedClientData,
+        AllStats: recalculatedStats,
+      });
+      dispatch(deleteClient({ clientId, clientData: deletedClientData[clientId] }));
     } catch (error) {
       console.log("Firebase update failed for delete client", error);
+      throw error;
+    }
+  };
+}
+
+export function updateRestoreClient({ user, clientId }) {
+  return async (dispatch) => {
+    const allClientData = { ...ReadDataFromStore.getAllClientData() };
+    const deletedClientData = { ...ReadDataFromStore.getDeletedClientData() };
+    const clientData = deletedClientData[clientId];
+
+    if (!clientData) {
+      throw new Error("Deleted client not found");
+    }
+
+    const { deletedAt, ...restoredClientData } = clientData;
+    allClientData[clientId] = restoredClientData;
+    delete deletedClientData[clientId];
+
+    const nextAllStats = recalculateAllStats(
+      allClientData,
+      ReadDataFromStore.getAllStats()
+    );
+
+    try {
+      await update(ref(db, `Users/${user}`), {
+        ClientData: allClientData,
+        DeletedClientData: deletedClientData,
+        AllStats: nextAllStats,
+      });
+      dispatch(restoreClient({ clientId, clientData: restoredClientData }));
+    } catch (error) {
+      console.log("Firebase update failed for restore client", error);
       throw error;
     }
   };

@@ -16,6 +16,11 @@ export function useAllClientData() {
   return ReadDataFromStore.getAllClientData();
 }
 
+export function useDeletedClientData() {
+  useSelector((state) => state.user.deletedClientData);
+  return ReadDataFromStore.getDeletedClientData();
+}
+
 export function useHomePageStatCardData() {
   useSelector((state) => state.user.allStats);
   return ReadDataFromStore.getHomePageStatCardData();

@@ -6,12 +6,14 @@ const userSlice = createSlice({
   initialState: {
     allStats: {},
     clientData: {},
+    deletedClientData: {},
   },
   reducers: {
     setUserData: (state, action) => {
-      const { allStats, clientData } = action.payload;
+      const { allStats, clientData, deletedClientData } = action.payload;
       state.allStats = allStats;
       state.clientData = clientData;
+      state.deletedClientData = deletedClientData || {};
     },
     addNewClient: (state, action) => {
       const { clientName, date, weekDay } = action.payload;
@@ -150,12 +152,49 @@ const userSlice = createSlice({
       };
     },
     deleteClient: (state, action) => {
-      const { clientId } = action.payload;
+      const { clientId, clientData } = action.payload;
       if (!state.clientData?.[clientId]) {
         return;
       }
 
+      state.deletedClientData[clientId] = clientData || state.clientData[clientId];
       delete state.clientData[clientId];
+
+      const recalculatedStats = {
+        TotalLoans: 0,
+        ActiveLoans: 0,
+        ClosedLoans: 0,
+        WeeklyCollection: 0,
+        UpcomingCollection: 0,
+      };
+
+      Object.entries(state.clientData).forEach(([key, value]) => {
+        const clientStat = value?.[`${key}Stat`];
+        if (!clientStat) {
+          return;
+        }
+
+        recalculatedStats.TotalLoans += 1;
+        if (clientStat.Status === "Active") {
+          recalculatedStats.ActiveLoans += 1;
+        } else if (clientStat.Status === "Closed") {
+          recalculatedStats.ClosedLoans += 1;
+        }
+        recalculatedStats.UpcomingCollection +=
+          (20 - (clientStat.WeeksPaid || 0)) * 600;
+      });
+
+      recalculatedStats.WeeklyCollection = recalculatedStats.ActiveLoans * 600;
+      state.allStats = recalculatedStats;
+    },
+    restoreClient: (state, action) => {
+      const { clientId, clientData } = action.payload;
+      if (!clientData) {
+        return;
+      }
+
+      state.clientData[clientId] = clientData;
+      delete state.deletedClientData[clientId];
 
       const recalculatedStats = {
         TotalLoans: 0,
@@ -194,5 +233,6 @@ export const {
   addEntry,
   editEntry,
   deleteClient,
+  restoreClient,
 } = userSlice.actions;
 export default userSlice.reducer;

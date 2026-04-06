@@ -364,6 +364,48 @@
   flex-wrap: wrap;
 }
 
+.deleted-clients-box {
+  margin: 24px;
+  padding: 18px;
+  border: 1px solid #fde68a;
+  background: #fffbeb;
+  border-radius: 14px;
+}
+
+.deleted-clients-header h4 {
+  margin: 0 0 4px;
+  color: #92400e;
+  font-size: 16px;
+}
+
+.deleted-clients-header p {
+  margin: 0 0 14px;
+  color: #a16207;
+  font-size: 13px;
+}
+
+.deleted-clients-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.deleted-client-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.deleted-client-item p {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-size: 12px;
+}
+
 .table-title h3 {
   font-size: 20px;
   font-weight: 700;
