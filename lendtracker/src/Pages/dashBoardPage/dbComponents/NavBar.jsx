@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function NavBar({
   onLogOut,
@@ -67,7 +67,7 @@ export default function NavBar({
           <div className="user-info">
             <span className="user-name">{user}</span>
             <span className="user-role">
-              {user == "Dravid" ? "Administrator" : "User"}
+              {user === "Dravid" ? "Administrator" : "User"}
             </span>
           </div>
           <button className="logout-btn" onClick={onLogOut}>

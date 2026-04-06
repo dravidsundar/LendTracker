@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { normalizeCollectionData } from "./collectionData.js";
 
 const userSlice = createSlice({
   name: "user",
@@ -23,7 +24,7 @@ const userSlice = createSlice({
           TotalAmountPaid: 0,
           CollectionDay: weekDay,
         },
-        CollectionData: {},
+        collectionData: {},
       };
       state.allStats.WeeklyCollection += 600;
       state.allStats.TotalLoans += 1;
@@ -59,16 +60,13 @@ const userSlice = createSlice({
           state.clientData[clientId].collectionData = {};
         }
 
+        const normalizedCollectionData = normalizeCollectionData(
+          state.clientData[clientId].collectionData,
+          true
+        );
         const clientStat = state.clientData[clientId][`${clientId}Stat`];
         const allStats = state.allStats || { ActiveLoans: 0, ClosedLoans: 0 };
-
-        const clientCollectionData1 = Object.fromEntries(
-          Object.entries(state.clientData[clientId].collectionData).filter(
-            ([key, value]) => value.date !== "need to be added"
-          )
-        );
-
-        const weeksRegistered = Object.keys(clientCollectionData1).length;
+        const weeksRegistered = Object.keys(normalizedCollectionData).length;
 
         if (entryStatus !== "pending") {
           state.clientData[clientId][`${clientId}Stat`] = {
@@ -93,7 +91,7 @@ const userSlice = createSlice({
         }
 
         state.clientData[clientId].collectionData = {
-          ...state.clientData[clientId].collectionData,
+          ...normalizedCollectionData,
           [`week${weeksRegistered + 1}`]: {
             Amount: entryAmount,
             date: entryDate,
@@ -105,20 +103,24 @@ const userSlice = createSlice({
 
     editEntry: (state, action) => {
       const { editDate, editStatus, clientId, editWeek } = action.payload;
+      state.clientData[clientId].collectionData = normalizeCollectionData(
+        state.clientData[clientId].collectionData,
+        true
+      );
       const currentStatus =
         state.clientData[`${clientId}`].collectionData[`week${editWeek}`]
           ?.entryStatus ?? "paid";
-      if (editStatus != currentStatus) {
+      if (editStatus !== currentStatus) {
         const length = Object.keys(
           state.clientData[`${clientId}`].collectionData
         ).length;
         console.log(1);
-        if (editStatus == "pending") {
+        if (editStatus === "pending") {
           state.clientData[`${clientId}`][`${clientId}Stat`].WeeksPaid -= 1;
           state.clientData[`${clientId}`][
             `${clientId}Stat`
           ].TotalAmountPaid -= 600;
-          if (length == 20) {
+          if (length === 20) {
             state.allStats.ActiveLoans += 1;
             state.allStats.ClosedLoans -= 1;
             state.allStats.WeeklyCollection += 600;
@@ -132,7 +134,7 @@ const userSlice = createSlice({
             `${clientId}Stat`
           ].TotalAmountPaid += 600;
 
-          if (length == 20) {
+          if (length === 20) {
             state.allStats.ActiveLoans -= 1;
             state.allStats.ClosedLoans += 1;
             state.allStats.WeeklyCollection -= 600;
@@ -147,9 +149,50 @@ const userSlice = createSlice({
         entryStatus: editStatus,
       };
     },
+    deleteClient: (state, action) => {
+      const { clientId } = action.payload;
+      if (!state.clientData?.[clientId]) {
+        return;
+      }
+
+      delete state.clientData[clientId];
+
+      const recalculatedStats = {
+        TotalLoans: 0,
+        ActiveLoans: 0,
+        ClosedLoans: 0,
+        WeeklyCollection: 0,
+        UpcomingCollection: 0,
+      };
+
+      Object.entries(state.clientData).forEach(([key, value]) => {
+        const clientStat = value?.[`${key}Stat`];
+        if (!clientStat) {
+          return;
+        }
+
+        recalculatedStats.TotalLoans += 1;
+        if (clientStat.Status === "Active") {
+          recalculatedStats.ActiveLoans += 1;
+        } else if (clientStat.Status === "Closed") {
+          recalculatedStats.ClosedLoans += 1;
+        }
+        recalculatedStats.UpcomingCollection +=
+          (20 - (clientStat.WeeksPaid || 0)) * 600;
+      });
+
+      recalculatedStats.WeeklyCollection = recalculatedStats.ActiveLoans * 600;
+      state.allStats = recalculatedStats;
+    },
   },
 });
 
-export const { setUserData, addNewClient, editClient, addEntry, editEntry } =
-  userSlice.actions;
+export const {
+  setUserData,
+  addNewClient,
+  editClient,
+  addEntry,
+  editEntry,
+  deleteClient,
+} = userSlice.actions;
 export default userSlice.reducer;

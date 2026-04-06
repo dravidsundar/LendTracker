@@ -357,6 +357,13 @@
   justify-content: space-between;
 }
 
+.table-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .table-title h3 {
   font-size: 20px;
   font-weight: 700;
@@ -1103,6 +1110,37 @@
 
 .modal-form {
   padding: 0 24px 24px 24px;
+}
+
+.confirm-popup-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(17, 24, 39, 0.6);
+  z-index: 1400;
+}
+
+.confirm-popup-modal {
+  width: min(100%, 420px);
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: deleteConfirmPop 0.18s ease-out;
+}
+
+@keyframes deleteConfirmPop {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .form-group {

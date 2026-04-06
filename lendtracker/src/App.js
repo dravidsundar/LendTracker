@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { auth } from "./firebase-config.js";
 import { onAuthStateChanged } from "firebase/auth";
 import DashBoard from "./Pages/dashBoardPage/DashBoard.jsx";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./Pages/dashBoardPage/dbComponents/ProtectedRoutes.jsx";
 import Home from "./Pages/dashBoardPage/SubPages/Home.jsx";
 import Client from "./Pages/dashBoardPage/SubPages/Client.jsx";

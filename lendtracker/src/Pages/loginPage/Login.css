@@ -190,3 +190,85 @@
   cursor: pointer;
   color: gray;
 }
+
+.login-form-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin: -4px 0 16px;
+}
+
+.forgot-password-btn {
+  background: transparent;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0;
+}
+
+.forgot-password-btn:hover,
+.toggle-btn:hover {
+  text-decoration: underline;
+}
+
+.login-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 1200;
+}
+
+.login-modal-card {
+  width: min(100%, 420px);
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.login-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.login-modal-header h3 {
+  margin: 0;
+  color: #111827;
+}
+
+.login-modal-close {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  font-size: 18px;
+}
+
+.login-modal-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.login-secondary-btn {
+  flex: 1;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: #111827;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-modal-actions .btn-login {
+  flex: 1;
+}

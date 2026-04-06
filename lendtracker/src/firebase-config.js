@@ -1,11 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref, get } from "firebase/database";
-import clipboard from "clipboardy";
-
-function sleep(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
+import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDz_QI6nJANl-kcGtPuYGf-nghnFblGmWM",

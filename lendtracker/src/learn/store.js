@@ -1,5 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
 import reducer from "./slice.js";
+import {
+  getNextSequentialWeek,
+  normalizeCollectionData,
+} from "./collectionData.js";
 
 export const store = configureStore({
   reducer: {
@@ -59,20 +63,10 @@ export class ReadDataFromStore {
   static getClientPageStatCardDataAndTableData(clientId) {
     const { clientStat, clientCollectionData } =
       this.getClientSpecificData(clientId);
-
-    const clientCollectionData1 = Object.fromEntries(
-      Object.entries(clientCollectionData || {}).filter(
-        ([key, value]) => value?.date !== "need to be added"
-      )
+    const sortedClientCollectionData = normalizeCollectionData(
+      clientCollectionData,
+      true
     );
-
-    const sortedEntries = Object.entries(clientCollectionData1).sort((a, b) => {
-      const weekNumA = parseInt(a[0].replace("week", "")) || 0;
-      const weekNumB = parseInt(b[0].replace("week", "")) || 0;
-      return weekNumA - weekNumB;
-    });
-
-    const sortedClientCollectionData = Object.fromEntries(sortedEntries);
 
     return { clientStat, sortedClientCollectionData };
   }
@@ -111,9 +105,8 @@ export class ReadDataFromStore {
   }
 
   static getNextEntryWeek(clientId) {
-    const { sortedClientCollectionData } =
-      this.getClientPageStatCardDataAndTableData(clientId);
-    return Object.keys(sortedClientCollectionData || {}).length + 1;
+    const { clientCollectionData } = this.getClientSpecificData(clientId);
+    return getNextSequentialWeek(clientCollectionData, true);
   }
 
   static getUpcomingCollectionAmount() {
@@ -150,7 +143,7 @@ export class ReadDataFromStore {
     return (
       Object.entries(allClientData).filter(([key, value]) => {
         console.log(value);
-        return value[`${key}Stat`].Status == "Active";
+        return value[`${key}Stat`].Status === "Active";
       }).length * 600
     );
   }
@@ -176,9 +169,9 @@ export class ReadDataFromStore {
     Object.entries(allClientData).forEach(([key, value]) => {
       const clientStat = value[`${key}Stat`];
       data.TotalLoans += 1;
-      if (clientStat.Status == "Active") {
+      if (clientStat.Status === "Active") {
         data.ActiveLoans += 1;
-      } else if (clientStat.Status == "Closed") {
+      } else if (clientStat.Status === "Closed") {
         data.ClosedLoans += 1;
       }
       weeks += 20 - clientStat.WeeksPaid;

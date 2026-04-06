@@ -21,6 +21,6 @@ export default function DataFetcherWrapper({ children, user }) {
       }
     }
     fetchData(user);
-  }, [dispatch]);
+  }, [dispatch, user]);
   return children;
 }

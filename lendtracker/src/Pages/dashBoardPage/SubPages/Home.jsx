@@ -1,15 +1,20 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import { useOutletContext, useNavigate } from "react-router-dom";
-import { updateNewClient } from "../../../learn/firebaseUpdates.js";
+import { useOutletContext, useNavigate, useLocation } from "react-router-dom";
+import {
+  updateBatchEntries,
+  updateNewClient,
+} from "../../../learn/firebaseUpdates.js";
 import Toast from "../dbComponents/Toast.jsx";
 import {
+  useAllClientData,
   useGetHomePageStatData,
   useHomePageClientTableData,
   useDayTableData,
   useGetNextClientID,
 } from "../../../learn/useReadData.js";
+import { buildBatchUpdatePreview } from "../../../learn/paymentSchedule.js";
 
 function getCurrentWeekdayAbbreviation() {
   const now = new Date();
@@ -19,7 +24,9 @@ function getCurrentWeekdayAbbreviation() {
 export default function Home() {
   const { setSideBarState, user } = useOutletContext();
   const [addClient, setAddClient] = useState(false);
-  const [toastMessage, setToastMessage] = useState("");
+  const [batchUpdateModalOpen, setBatchUpdateModalOpen] = useState(false);
+  const [batchUpdating, setBatchUpdating] = useState(false);
+  const [toastMessage, setToastMessage] = useState(null);
   const [filter, setFilter] = useState(() => {
     const saved = localStorage.getItem("homePageFilter");
     return saved
@@ -31,10 +38,16 @@ export default function Home() {
   });
 
   const homeStats = useGetHomePageStatData();
+  const allClientData = useAllClientData();
   const homeTableData = useHomePageClientTableData();
   const dayTableData = useDayTableData();
   const nextClientId = useGetNextClientID();
+  const batchPreview = buildBatchUpdatePreview(allClientData);
+  const formattedToday = new Intl.DateTimeFormat("en-US", {
+    dateStyle: "long",
+  }).format(new Date());
   const navigate = useNavigate();
+  const location = useLocation();
   const dispatch = useDispatch();
 
   const {
@@ -61,6 +74,16 @@ export default function Home() {
       });
     }
   }, [nextClientId, reset]);
+
+  useEffect(() => {
+    if (location.state?.toast) {
+      setToastMessage({
+        msg: location.state.toast.msg,
+        isWarning: location.state.toast.isWarning ?? location.state.toast.wrn ?? false,
+      });
+      navigate(location.pathname, { replace: true });
+    }
+  }, [location.pathname, location.state, navigate]);
 
   const formatCurrency = (amount) =>
     new Intl.NumberFormat("en-IN", {
@@ -98,6 +121,28 @@ export default function Home() {
     }
   };
 
+  const handleBatchUpdate = async () => {
+    setBatchUpdating(true);
+    try {
+      const result = await dispatch(updateBatchEntries({ user }));
+      setBatchUpdateModalOpen(false);
+      setToastMessage({
+        msg:
+          result?.totalEntriesToAdd > 0
+            ? `Added ${result.totalEntriesToAdd} missing entries across ${result.clientsToUpdate} clients`
+            : "No missing entries were found up to today",
+        isWarning: false,
+      });
+    } catch {
+      setToastMessage({
+        msg: "Batch update failed",
+        isWarning: true,
+      });
+    } finally {
+      setBatchUpdating(false);
+    }
+  };
+
   return (
     <>
       <header className="dashboard-header">
@@ -122,6 +167,14 @@ export default function Home() {
           </button>
         </div>
       </header>
+
+      {toastMessage && (
+        <Toast
+          message={toastMessage.msg}
+          isWarning={toastMessage.isWarning}
+          onClose={() => setToastMessage(null)}
+        />
+      )}
 
       <main className="dashboard-content">
         <div className="metrics-grid">
@@ -199,19 +252,78 @@ export default function Home() {
               <h3>Client Management</h3>
               <p>Track loan status and payments</p>
             </div>
-            <button
-              className={`btn-primary ${addClient ? "active" : ""}`}
-              onClick={() => setAddClient((prev) => !prev)}
-            >
-              <i className="fas fa-plus"></i> Add Client
-            </button>
+            <div className="table-header-actions">
+              <button
+                className="btn-secondary"
+                onClick={() => setBatchUpdateModalOpen(true)}
+                disabled={batchUpdating}
+              >
+                <i className="fas fa-layer-group"></i> Batch Update
+              </button>
+              <button
+                className={`btn-primary ${addClient ? "active" : ""}`}
+                onClick={() => setAddClient((prev) => !prev)}
+              >
+                <i className="fas fa-plus"></i> Add Client
+              </button>
+            </div>
           </div>
 
-          {addClient && toastMessage && (
-            <Toast
-              message={toastMessage.msg}
-              onClose={() => setToastMessage(null)}
-            />
+          {batchUpdateModalOpen && (
+            <div className="confirm-popup-overlay">
+              <div className="confirm-popup-modal">
+                <div className="modal-header">
+                  <h3>Batch Update Entries</h3>
+                  <button
+                    className="modal-close"
+                    onClick={() => {
+                      if (!batchUpdating) {
+                        setBatchUpdateModalOpen(false);
+                      }
+                    }}
+                  >
+                    <i className="fas fa-times"></i>
+                  </button>
+                </div>
+                <div className="modal-form">
+                  <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.6 }}>
+                    This will assume all scheduled payments are up to date until{" "}
+                    <strong>{formattedToday}</strong>.
+                  </p>
+                  <p style={{ color: "#4b5563", lineHeight: 1.6 }}>
+                    Missing entries will be created automatically for each
+                    client based on their lend date and collection day, and
+                    those entries will be marked as paid.
+                  </p>
+                  <p style={{ color: "#b45309", lineHeight: 1.6 }}>
+                    Warning: if a payment was actually missed, this action will
+                    still record it as paid.
+                  </p>
+                  <p style={{ color: "#111827", fontWeight: 600 }}>
+                    Preview: {batchPreview.totalEntriesToAdd} entries across{" "}
+                    {batchPreview.clientsToUpdate} clients will be added.
+                  </p>
+                  <div className="form-actions">
+                    <button
+                      type="button"
+                      className="btn-secondary"
+                      onClick={() => setBatchUpdateModalOpen(false)}
+                      disabled={batchUpdating}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      type="button"
+                      className="btn-primary"
+                      onClick={handleBatchUpdate}
+                      disabled={batchUpdating}
+                    >
+                      {batchUpdating ? "Updating..." : "Confirm Batch Update"}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
           )}
 
           <div

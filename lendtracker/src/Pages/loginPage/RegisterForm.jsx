@@ -6,7 +6,7 @@ import { ref, set, update } from "firebase/database";
 import { useNavigate } from "react-router-dom";
 
 export function RegisterForm() {
-  const { register, handleSubmit, watch } = useForm({
+  const { register, handleSubmit } = useForm({
     defaultValues: {
       username: "",
       email: "",

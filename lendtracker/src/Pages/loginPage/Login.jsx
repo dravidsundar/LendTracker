@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { LoginForm } from "./LoginForm";
-import { RegisterForm } from "./RegisterForm";
 import { Outlet, useNavigate } from "react-router-dom";
 import "./Login.css";
 

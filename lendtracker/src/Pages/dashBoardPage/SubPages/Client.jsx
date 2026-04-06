@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useOutletContext, useParams } from "react-router-dom";
+import { useNavigate, useOutletContext, useParams } from "react-router-dom";
 import {
   useClientPageStatCardDataAndTableData,
   useGetNextEntryWeek,
@@ -8,6 +8,7 @@ import {
   updateEditClient,
   updateAddEntry,
   updateEditEntry,
+  updateDeleteClient,
 } from "../../../learn/firebaseUpdates.js";
 import { useForm } from "react-hook-form";
 import Toast from "../dbComponents/Toast.jsx";
@@ -15,8 +16,11 @@ import { useDispatch } from "react-redux";
 export default function Client() {
   const { setSideBarState, user } = useOutletContext();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [activeModal, setActiveModal] = useState(null);
   const [editClientModalOpen, setEditClientModalOpen] = useState(false);
+  const [deleteClientModalOpen, setDeleteClientModalOpen] = useState(false);
+  const [isDeletingClient, setIsDeletingClient] = useState(false);
   const { clientId } = useParams();
   const nextWeekId = useGetNextEntryWeek(clientId);
   console.log(nextWeekId);
@@ -93,7 +97,33 @@ export default function Client() {
         });
       }
     }
-  }, [watchEditWeekEntry]);
+  }, [clientId, resetEdit, sortedClientCollectionData, watchEditWeekEntry]);
+
+  const handleDeleteClient = async () => {
+    if (!clientStat?.ClientName || isDeletingClient) {
+      return;
+    }
+
+    setIsDeletingClient(true);
+    try {
+      await dispatch(updateDeleteClient({ user, clientId }));
+      navigate("/", {
+        replace: true,
+        state: {
+          toast: {
+            msg: `Successfully deleted ${clientStat.ClientName}`,
+            wrn: false,
+          },
+        },
+      });
+    } catch (error) {
+      setToast({
+        msg: "Failed to delete client",
+        wrn: true,
+      });
+      setIsDeletingClient(false);
+    }
+  };
   return (
     <>
       <header className="dashboard-header">
@@ -116,7 +146,7 @@ export default function Client() {
           onClose={() => setToast(null)}
         />
       )}
-      {clientId != "1" ? (
+      {clientId !== "1" ? (
         <main className="dashboard-content">
           <div className="client-info-card">
             <div className="client-header">
@@ -151,13 +181,61 @@ export default function Client() {
                     <i className="fas fa-edit"></i>
                     Edit Client
                   </button>
-                  <button className="btn-danger" disabled>
+                  <button
+                    className="btn-danger"
+                    onClick={() => setDeleteClientModalOpen(true)}
+                    disabled={isDeletingClient || !clientStat?.ClientName}
+                  >
                     <i className="fas fa-trash"></i>
-                    Delete
+                    {isDeletingClient ? "Deleting..." : "Delete"}
                   </button>
                 </div>
               </div>
             </div>
+
+            {deleteClientModalOpen && (
+              <div className="confirm-popup-overlay">
+                <div className="confirm-popup-modal">
+                  <div className="modal-header">
+                    <h3>Delete Client</h3>
+                    <button
+                      className="modal-close"
+                      onClick={() => {
+                        if (!isDeletingClient) {
+                          setDeleteClientModalOpen(false);
+                        }
+                      }}
+                    >
+                      <i className="fas fa-times"></i>
+                    </button>
+                  </div>
+                  <div className="modal-form">
+                    <p style={{ margin: 0, color: "#4b5563", lineHeight: 1.6 }}>
+                      Delete <strong>{clientStat?.ClientName}</strong> and all
+                      payment entries? This action cannot be undone.
+                    </p>
+                    <div className="form-actions">
+                      <button
+                        type="button"
+                        className="btn-secondary"
+                        onClick={() => setDeleteClientModalOpen(false)}
+                        disabled={isDeletingClient}
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="button"
+                        className="btn-danger"
+                        onClick={handleDeleteClient}
+                        disabled={isDeletingClient}
+                      >
+                        {isDeletingClient ? "Deleting..." : "Confirm Delete"}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
 
             {editClientModalOpen && (
               <div
@@ -356,7 +434,7 @@ export default function Client() {
                         if (
                           clientStat?.Status === "Closed" ||
                           Object.keys(sortedClientCollectionData ?? {})
-                            .length == 20
+                            .length === 20
                         ) {
                           setToast({
                             msg: "This client is already closed",
@@ -365,12 +443,10 @@ export default function Client() {
                           return;
                         }
                         let isDuplicate = false;
-                        if (clientStat?.WeeksPaid >= 1) {
-                          const lastWeek = `week${
-                            Object.keys(sortedClientCollectionData).length
-                          }`;
-                          const lastWeekEntry =
-                            sortedClientCollectionData[lastWeek];
+                        const lastWeekEntry = Object.values(
+                          sortedClientCollectionData
+                        ).at(-1);
+                        if (clientStat?.WeeksPaid >= 1 && lastWeekEntry) {
                           if (
                             lastWeekEntry?.date === entryDate &&
                             !user.includes("T")
@@ -510,8 +586,8 @@ export default function Client() {
                         const weekData =
                           sortedClientCollectionData[`week${editWeek}`];
                         if (
-                          weekData.entryStatus == editStatus &&
-                          weekData.date == editDate
+                          weekData.entryStatus === editStatus &&
+                          weekData.date === editDate
                         ) {
                           setToast({
                             msg: "Both Date And EntryStatus Are Same ",
@@ -632,7 +708,7 @@ export default function Client() {
                   </tr>
                 </thead>
                 <tbody>
-                  {Object.keys(clientStat ?? {}).length == 0
+                  {Object.keys(clientStat ?? {}).length === 0
                     ? Array.from({ length: 5 }).map((__, i) => (
                         <tr key={i}>
                           <td>
@@ -691,7 +767,6 @@ export default function Client() {
           style={{
             color: "gray",
             fontSize: "2rem",
-            marginTop: "1rem",
             textAlign: "center",
             textWrap: "wrap",
             marginTop: "10rem",
